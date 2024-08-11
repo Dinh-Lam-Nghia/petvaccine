@@ -1,8 +1,11 @@
 # Tải gitextensions
 
+<<<<<<< HEAD
 Tải ngay : [ https://gitextensions.github.io/ ] ( https://gitextensions.github.io/ )
+=======
+Tải ngay: [https://gitextensions.github.io/](https://gitextensions.github.io/)
 
-adASDSDADFDSAFASDF
+>>>>>>> 07130eb4d82faebad38c5f386d009d656e167c5b
 
 ### Xem các file đã thay đổi
 ```sh

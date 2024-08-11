@@ -1,9 +1,3 @@
-# Tải gitextensions
-
-Tải ngay : [ https://gitextensions.github.io/ ] ( https://gitextensions.github.io/ )
-
-adASDSDADFDSAFASDF
-
 ### Xem các file đã thay đổi
 ```sh
 git status
