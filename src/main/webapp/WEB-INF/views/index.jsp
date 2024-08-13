@@ -7,8 +7,5 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>helllo workd123</h1>
-<h2>tho</h2>
-<h3>nghiax</h3>
 </body>
 </html>
