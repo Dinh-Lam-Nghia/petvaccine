@@ -18,9 +18,14 @@ public class login {
 	}
 	
 	@GetMapping("/forgot")
-	public String getMethodName(Model model) {
+	public String forgot(Model model) {
 		model.addAttribute("title", "Khôi phục mật khẩu");
 		return "login_logout/forgot";
+	}
+	@GetMapping("/register")
+	public String register(Model model) {
+		model.addAttribute("title", "Khôi phục mật khẩu");
+		return "login_logout/register";
 	}
 	
 	
