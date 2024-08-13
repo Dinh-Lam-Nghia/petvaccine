@@ -17,9 +17,9 @@
                     <img src="${contextPath}/resources/images/team.jpg" alt="IMG">
                 </div>
                 <!--=====TIÊU ĐỀ======-->
-                <form class="login100-form validate-form" action="<%= request.getContextPath() %>/login" method="post">
+                <form class="login100-form validate-form" action="<%= request.getContextPath() %>/register" method="post">
                     <span class="login100-form-title">
-                        <b>ĐĂNG NHẬP HỆ THỐNG POS</b>
+                        <b>ĐĂNG KÝ TÀI KHOẢN POS</b>
                     </span>
                     <!--=====FORM INPUT TÀI KHOẢN VÀ PASSWORD======-->
                     <div class="wrap-input100 validate-input">
@@ -37,18 +37,23 @@
                             <i class='bx bx-key'></i>
                         </span>
                     </div>
-
-                    <!--=====ĐĂNG NHẬP======-->
-                    <div class="container-login100-form-btn">
-                        <input type="submit" value="Đăng nhập" id="submit" />
+                    <div class="wrap-input100 validate-input">
+                        <input autocomplete="off" class="input100" type="password" placeholder="Nhập lại mật khẩu" name="password" id="password-field">
+                        <span toggle="#password-field" class="bx fa-fw bx-hide field-icon click-eye"></span>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class='bx bx-key'></i>
+                        </span>
                     </div>
-                    <!--=====LINK TÌM MẬT KHẨU======-->
+
+                    <!--=====ĐĂNG KÝ======-->
+                    <div class="container-login100-form-btn">
+                        <input type="submit" value="Đăng ký" id="submit" />
+                    </div>
+                    <!--=====LINK ĐĂNG NHẬP======-->
                     <div class="text-right p-t-12">
-                        <a class="txt2" href="${contextPath}/forgot">
-                            Bạn quên mật khẩu?
-                        </a>
-                        <a class="txt2" href="${contextPath}/register">
-                            Đăng ký
+                        <a class="txt2" href="${contextPath}/login">
+                            Đăng nhập
                         </a>
                     </div>
                     <!--=====FOOTER======-->
@@ -66,7 +71,7 @@
     <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
     <script src="${contextPath}/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="${contextPath}/vendor/bootstrap/js/popper.js"></script>
-    <script src="$contextPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${contextPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="${contextPath}/vendor/select2/select2.min.js"></script>
     <script type="text/javascript">
         //show - hide mật khẩu
