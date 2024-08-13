@@ -17,7 +17,7 @@ public class login {
 		return "login_logout/login";
 	}
 	
-	@GetMapping("/khoi_phuc_mat_khau")
+	@GetMapping("/forgot")
 	public String getMethodName(Model model) {
 		model.addAttribute("title", "Khôi phục mật khẩu");
 		return "login_logout/forgot";
