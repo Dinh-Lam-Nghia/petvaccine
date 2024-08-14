@@ -14,10 +14,4 @@ public class index {
 		return "index";
 	}
 	
-	@GetMapping("/")
-	public String index(Model model) {
-		model.addAttribute("title", "Pet Vaccine");
-		return "index";
-	}
-	
 }
