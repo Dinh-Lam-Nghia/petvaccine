@@ -17,10 +17,15 @@ public class login {
 		return "login_logout/login";
 	}
 	
-	@GetMapping("/khoi_phuc_mat_khau")
-	public String getMethodName(Model model) {
+	@GetMapping("/forgot")
+	public String forgot(Model model) {
 		model.addAttribute("title", "Khôi phục mật khẩu");
 		return "login_logout/forgot";
+	}
+	@GetMapping("/register")
+	public String register(Model model) {
+		model.addAttribute("title", "Khôi phục mật khẩu");
+		return "login_logout/register";
 	}
 	
 	
