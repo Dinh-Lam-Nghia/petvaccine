@@ -4,11 +4,8 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  
   <jsp:include page="/WEB-INF/views/head.jsp" />
-
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
