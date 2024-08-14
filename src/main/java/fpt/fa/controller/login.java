@@ -24,7 +24,7 @@ public class login {
 	}
 	@GetMapping("/register")
 	public String register(Model model) {
-		model.addAttribute("title", "Khôi phục mật khẩu");
+		model.addAttribute("title", "Đăng ký");
 		return "login_logout/register";
 	}
 	
