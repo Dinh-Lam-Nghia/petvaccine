@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class index {
 	@GetMapping("/")
 	public String index(Model model) {
+		model.addAttribute("title", "Pet Vaccine");
 		return "index";
 	}
 	
