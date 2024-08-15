@@ -15,7 +15,7 @@ public class Appointments {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int appointmentID;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "petID", referencedColumnName = "petID")
 	private Pets petID;
@@ -37,6 +37,16 @@ public class Appointments {
 
 	@Column(columnDefinition = "nvarchar(250)")
 	private String purpose;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Appointments() {
 		super();
@@ -97,5 +107,5 @@ public class Appointments {
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
-	
+
 }

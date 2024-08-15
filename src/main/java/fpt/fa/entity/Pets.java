@@ -15,16 +15,16 @@ import javax.persistence.OneToMany;
 @Entity
 public class Pets {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int petID;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "ownerID", referencedColumnName = "ownerID")
 	private PetOwners ownerID;
-	
+
 	@Column(columnDefinition = "nvarchar(250)")
 	private String petName;
-	
+
 	@Column(columnDefinition = "nvarchar(250)")
 	private String species;
 
@@ -39,12 +39,22 @@ public class Pets {
 
 	@Column(columnDefinition = "nvarchar(250)")
 	private String microchipID;
-	
+
 	@OneToMany(mappedBy = "petID")
 	private List<VaccinationRecords> recordID;
 
 	@OneToMany(mappedBy = "petID")
 	private List<Appointments> appointmentID;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Pets() {
 		super();

@@ -12,14 +12,24 @@ import javax.persistence.OneToMany;
 @Entity
 public class Position {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int positionID;
 
 	@Column(columnDefinition = "nvarchar(250)")
 	private String name;
-	
+
 	@OneToMany(mappedBy = "positionID")
 	private List<Account> userID;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Position() {
 		super();

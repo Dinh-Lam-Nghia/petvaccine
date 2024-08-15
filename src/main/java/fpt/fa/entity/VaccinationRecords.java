@@ -15,11 +15,11 @@ public class VaccinationRecords {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int recordID;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "petID", referencedColumnName = "petID")
 	private Pets petID;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "vaccineID", referencedColumnName = "vaccineID")
 	private Vaccines vaccineID;
@@ -33,6 +33,16 @@ public class VaccinationRecords {
 
 	@Column(columnDefinition = "date")
 	private Date nextDueDate;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public VaccinationRecords() {
 		super();
@@ -85,5 +95,5 @@ public class VaccinationRecords {
 	public void setNextDueDate(Date nextDueDate) {
 		this.nextDueDate = nextDueDate;
 	}
-	
+
 }
