@@ -6,8 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id; 
-import javax.persistence.ManyToMany; 
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Clinics {
@@ -29,6 +29,16 @@ public class Clinics {
 
 	@ManyToMany(mappedBy = "clinicID")
 	private List<Appointments> appointmentID;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Clinics() {
 		super();

@@ -13,9 +13,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class PetOwners {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ownerID;
-	
+
 	@Column(columnDefinition = "nvarchar(250)")
 	private String ownerName;
 
@@ -30,12 +30,22 @@ public class PetOwners {
 
 	@Column(columnDefinition = "date")
 	private Date dateOfRegistration;
-	
+
 	@OneToMany(mappedBy = "ownerID")
 	private List<Pets> pets;
-	
+
 	@OneToMany(mappedBy = "ownerID")
 	private List<Appointments> appointmentID;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public PetOwners() {
 		super();
@@ -104,5 +114,5 @@ public class PetOwners {
 	public void setAppointmentID(List<Appointments> appointmentID) {
 		this.appointmentID = appointmentID;
 	}
-	
+
 }

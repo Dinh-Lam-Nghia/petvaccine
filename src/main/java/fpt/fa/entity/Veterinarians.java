@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany; 
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -25,7 +25,7 @@ public class Veterinarians {
 
 	@Column(columnDefinition = "nvarchar(250)")
 	private String email;
-	
+
 	@ManyToMany
 	@JoinColumn(name = "clinicID", referencedColumnName = "clinicID")
 	private List<Clinics> clinicID;
@@ -35,6 +35,16 @@ public class Veterinarians {
 
 	@OneToMany(mappedBy = "veterinarianID")
 	private List<Appointments> appointmentID;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Veterinarians() {
 		super();

@@ -14,7 +14,7 @@ public class Vaccines {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int vaccineID;
-	
+
 	@Column(columnDefinition = "nvarchar(250)")
 	private String vaccineName;
 
@@ -23,11 +23,21 @@ public class Vaccines {
 
 	@Column(columnDefinition = "nvarchar(250)")
 	private String diseasePrevented;
-	
+
 	private int duration;
-	
+
 	@OneToMany(mappedBy = "vaccineID")
 	private List<VaccinationRecords> recordID;
+
+	private int delete;
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Vaccines() {
 		super();

@@ -19,10 +19,42 @@ public class Account {
 
 	@Column(columnDefinition = "nvarchar(250)")
 	private String userPass;
+
+	@Column(columnDefinition = "nvarchar(250)")
+	private String displayName;
+
+	@Column(columnDefinition = "nvarchar(250)")
+	private String phone;
+	
+	private int delete;
 	
 	@ManyToOne
 	@JoinColumn(name = "positionID", referencedColumnName = "positionID")	
 	private Position positionID;
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public int getDelete() {
+		return delete;
+	}
+
+	public void setDelete(int delete) {
+		this.delete = delete;
+	}
 
 	public Account() {
 		super();
