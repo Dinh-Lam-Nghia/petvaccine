@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 public class PetOwners {
@@ -37,6 +38,7 @@ public class PetOwners {
 	@OneToMany(mappedBy = "ownerID")
 	private List<Appointments> appointmentID;
 
+	@Column(name = "isDelete")
 	private int delete;
 
 	public int getDelete() {

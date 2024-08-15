@@ -9,8 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
 public class Appointments {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +39,7 @@ public class Appointments {
 	@Column(columnDefinition = "nvarchar(250)")
 	private String purpose;
 
+	@Column(name = "isDelete")
 	private int delete;
 
 	public int getDelete() {

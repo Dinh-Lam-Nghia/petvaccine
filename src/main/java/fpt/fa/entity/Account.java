@@ -7,8 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
 public class Account {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +27,7 @@ public class Account {
 	@Column(columnDefinition = "nvarchar(250)")
 	private String phone;
 	
+	@Column(name = "isDelete")
 	private int delete;
 	
 	@ManyToOne

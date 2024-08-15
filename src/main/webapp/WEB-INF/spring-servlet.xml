@@ -31,12 +31,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- <bean id="student" class="fpt.fa.entity.Student"> <property name="id" 
-		value="1" /> <property name="name" value="Nguyet" /> <property name="address" 
-		value="#{address}" /> </bean> <bean id="address" class="fpt.fa.entity.Address"> 
-		<property name="city" value="Da nang"></property> <property name="street" 
-		value="Nam Ky Khoi Nghia"></property> </bean> -->
-
 	<!-- Step 1: Define Database DataSource -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">

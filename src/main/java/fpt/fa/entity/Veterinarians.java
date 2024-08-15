@@ -10,8 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
 public class Veterinarians {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +37,7 @@ public class Veterinarians {
 	@OneToMany(mappedBy = "veterinarianID")
 	private List<Appointments> appointmentID;
 
+	@Column(name = "isDelete")
 	private int delete;
 
 	public int getDelete() {
