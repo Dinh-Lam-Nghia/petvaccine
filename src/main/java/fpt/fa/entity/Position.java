@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
 public class Position {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,7 @@ public class Position {
 	@OneToMany(mappedBy = "positionID")
 	private List<Account> userID;
 
+	@Column(name = "isDelete")
 	private int delete;
 
 	public int getDelete() {

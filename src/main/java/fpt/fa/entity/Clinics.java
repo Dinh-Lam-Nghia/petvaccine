@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity 
 public class Clinics {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,7 @@ public class Clinics {
 	@ManyToMany(mappedBy = "clinicID")
 	private List<Appointments> appointmentID;
 
+	@Column(name = "isDelete")
 	private int delete;
 
 	public int getDelete() {
