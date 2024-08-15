@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 //@RequestMapping("/login")
-public class login {
+public class loginController {
 	@GetMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("title", "Đăng nhập");
