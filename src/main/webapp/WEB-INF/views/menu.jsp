@@ -23,42 +23,54 @@
 <aside class="app-sidebar">
 	<div class="app-sidebar__user">
 		<img class="app-sidebar__user-avatar"
-			src="${contextPath}/resources/images/hay.jpg" width="50px"
+			src="${contextPath}/resources/images/petVaccine.png" width="50px"
 			alt="User Image">
 		<div>
 			<p class="app-sidebar__user-name">
-				<b>Võ Trường</b>
+				<b>Pet Vaccines</b>
 			</p>
-			<p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
 		</div>
 	</div>
 	<hr>
 	<ul class="app-menu">
 		<!--  <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
           <span class="app-menu__label">POS Bán Hàng</span></a></li> -->
-		<li><a class="app-menu__item active" href="index.html"><i
+		<li><a class="app-menu__item ${menu_index }"
+			href="${contextPath }/"><i
 				class='app-menu__icon bx bx-tachometer'></i><span
 				class="app-menu__label">Bảng điều khiển</span></a></li>
-		<li><a class="app-menu__item " href="${contextPath}/clinics/list"><i
-				class='bx bx-home-heart'  style="font-size: 24px; padding-right: 19px"></i> <span class="app-menu__label">Quản
-					lý phòng khám</span></a></li>
-		<li><a class="app-menu__item" href="table-data-banned.html"><i
-				class='bx bxs-group' style="font-size: 24px; padding-right: 19px"></i><span
+
+		<li><a class="app-menu__item ${menu_clinics }"
+			href="table-data-table.html"><i class='bx bx-home-heart'
+				style="font-size: 24px; padding-right: 19px"></i> <span
+				class="app-menu__label">Quản lý phòng khám</span></a></li>
+
+		<li><a class="app-menu__item ${menu_veterinarians }"
+			href="table-data-banned.html"><i class='bx bxs-group'
+				style="font-size: 24px; padding-right: 19px"></i><span
 				class="app-menu__label">Quản lý Bác sĩ </span></a></li>
-		<li><a class="app-menu__item" href="#"><i
+
+		<li><a class="app-menu__item ${menu_petsowners }"
+			href="${contextPath }/petsowners/list"><i
 				class='app-menu__icon bx bx-user-voice'></i><span
 				class="app-menu__label">Quản lý khách hàng</span></a></li>
-		<li><a class="app-menu__item" href="table-data-product.html"><i
-				class='bx bxs-cat' style="font-size: 24px; padding-right: 19px"></i><span
+
+		<li><a class="app-menu__item ${menu_pets }"
+			href="table-data-product.html"><i class='bx bxs-cat'
+				style="font-size: 24px; padding-right: 19px"></i><span
 				class="app-menu__label">Quản lý thú cưng</span></a></li>
-		<li><a class="app-menu__item" href="table-data-oder.html"><i
-				class='app-menu__icon bx bx-task'></i><span class="app-menu__label">Quản
-					lý cuộc hẹn</span></a></li>
-		<li><a class="app-menu__item" href="table-data-product.html"><i
-				class='bx bx-test-tube' style="font-size: 24px; padding-right: 19px"></i><span
+
+		<li><a class="app-menu__item ${menu_appointments  }"
+			href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
+				class="app-menu__label">Quản lý cuộc hẹn</span></a></li>
+
+		<li><a class="app-menu__item ${menu_vaccines }"
+			href="table-data-product.html"><i class='bx bx-test-tube'
+				style="font-size: 24px; padding-right: 19px"></i><span
 				class="app-menu__label">Quản lý vắc-xin</span></a></li>
-		<li><a class="app-menu__item" href="table-data-product.html"><i
-				class='bx bx-folder-open'
+
+		<li><a class="app-menu__item ${menu_vaccinationRecords  }"
+			href="table-data-product.html"><i class='bx bx-folder-open'
 				style="font-size: 24px; padding-right: 19px"></i><span
 				class="app-menu__label">Hồ sơ tiêm chủng</span></a></li>
 	</ul>
