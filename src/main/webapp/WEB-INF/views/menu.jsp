@@ -39,7 +39,7 @@
 		<li><a class="app-menu__item active" href="index.html"><i
 				class='app-menu__icon bx bx-tachometer'></i><span
 				class="app-menu__label">Bảng điều khiển</span></a></li>
-		<li><a class="app-menu__item " href="table-data-table.html"><i
+		<li><a class="app-menu__item " href="${contextPath}/clinics/list"><i
 				class='bx bx-home-heart'  style="font-size: 24px; padding-right: 19px"></i> <span class="app-menu__label">Quản
 					lý phòng khám</span></a></li>
 		<li><a class="app-menu__item" href="table-data-banned.html"><i
