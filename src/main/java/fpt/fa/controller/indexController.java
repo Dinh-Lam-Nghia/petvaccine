@@ -13,6 +13,7 @@ public class indexController {
 	@GetMapping("/")
 	public String index(Model model) {
 		model.addAttribute("title", "Pet Vaccine");
+		model.addAttribute("menu_index", "active");
 		return "index";
 	}
 	

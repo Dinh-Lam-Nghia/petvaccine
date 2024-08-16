@@ -11,7 +11,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class petsownersController {
 	@GetMapping("/list")
 	public String list_Petsowners(Model model) {
+		model.addAttribute("menu_petsowners", "active");
 		return "petsowners/list";
 	}
 	
+	@GetMapping("/create")
+	public String create_Petsowners(Model model) {
+		model.addAttribute("menu_petsowners", "active");
+		return "petsowners/create";
+	}
+	
+	@GetMapping("/edit")
+	public String edit_Petsowners(Model model) {
+		model.addAttribute("menu_petsowners", "active");
+		return "petsowners/edit";
+	}
 }
