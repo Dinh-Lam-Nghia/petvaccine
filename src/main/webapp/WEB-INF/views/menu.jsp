@@ -41,12 +41,12 @@
 				class="app-menu__label">Bảng điều khiển</span></a></li>
 
 		<li><a class="app-menu__item ${menu_clinics }"
-			href="table-data-table.html"><i class='bx bx-home-heart'
+			href="${contextPath }/clinics/list"><i class='bx bx-home-heart'
 				style="font-size: 24px; padding-right: 19px"></i> <span
 				class="app-menu__label">Quản lý phòng khám</span></a></li>
 
 		<li><a class="app-menu__item ${menu_veterinarians }"
-			href="table-data-banned.html"><i class='bx bxs-group'
+			href="${contextPath }/veterinarians/list"><i class='bx bxs-group'
 				style="font-size: 24px; padding-right: 19px"></i><span
 				class="app-menu__label">Quản lý Bác sĩ </span></a></li>
 
