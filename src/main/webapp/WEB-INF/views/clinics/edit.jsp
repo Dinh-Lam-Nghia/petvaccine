@@ -37,7 +37,9 @@
 								<form:input path="phoneNumber" class="form-control" required="required" />
 							</div>
 							<button class="btn btn-save" type="submit">Lưu lại</button>
-							<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+							<button class="btn btn-cancel" type="button"
+								onclick="window.location.href='${contextPath}/clinics/list'">Hủy
+								bỏ</button>
 						</form:form>
 					</div>
 				</div>
