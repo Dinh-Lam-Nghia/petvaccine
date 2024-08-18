@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
 	<main class="app-content">
 		<div class="app-title">
 			<ul class="app-breadcrumb breadcrumb">
-				<li class="breadcrumb-item"><a href="${contextPath }/clinics/list">Danh sách phòng khám</a></li>
+				<li class="breadcrumb-item"><a href="${contextPath}/clinics/list">Danh sách phòng khám</a></li>
 				<li class="breadcrumb-item">Chỉnh sửa phòng khám</li>
 			</ul>
 		</div>
@@ -22,23 +22,23 @@
 				<div class="tile">
 					<h3 class="tile-title">Chỉnh sửa thông tin phòng khám</h3>
 					<div class="tile-body">
-						<form action="${contextPath}/clinics/update" method="post" class="row">
-							<input type="hidden" name="clinicID" value="${clinic.clinicID}" />
+						<form:form action="${contextPath}/clinics/edit" method="post" modelAttribute="clinic" class="row">
+							<form:hidden path="clinicID" />
 							<div class="form-group col-md-3">
 								<label class="control-label">Tên phòng khám</label>
-								<input class="form-control" type="text" name="clinicName" value="${clinic.clinicName}">
+								<form:input path="clinicName" class="form-control" required="required" />
 							</div>
 							<div class="form-group col-md-3">
 								<label class="control-label">Địa chỉ</label>
-								<input class="form-control" type="text" name="address" value="${clinic.address}">
+								<form:input path="address" class="form-control" required="required" />
 							</div>
 							<div class="form-group col-md-3">
 								<label class="control-label">Số điện thoại</label>
-								<input class="form-control" type="text" name="phoneNumber" value="${clinic.phoneNumber}">
+								<form:input path="phoneNumber" class="form-control" required="required" />
 							</div>
 							<button class="btn btn-save" type="submit">Lưu lại</button>
 							<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
-						</form>
+						</form:form>
 					</div>
 				</div>
 			</div>

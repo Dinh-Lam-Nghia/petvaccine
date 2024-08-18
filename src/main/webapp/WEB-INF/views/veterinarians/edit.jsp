@@ -23,6 +23,7 @@
                     <h3 class="tile-title">Chỉnh sửa thông tin bác sĩ</h3>
                     <div class="tile-body">
                         <form:form action="${contextPath}/veterinarians/update" method="post" modelAttribute="veterinarian" class="row">
+                        <form:hidden path="veterinarianID" />
                             <div class="form-group col-md-4">
                                 <label class="control-label">Email</label>
                                 <form:input path="email" class="form-control" type="email" required="true"/>
