@@ -1,4 +1,4 @@
-package fpt.fa.service;
+package fpt.fa.service.Impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import fpt.fa.entity.Clinics;
 import fpt.fa.repository.ClinicsRepository;
+import fpt.fa.service.ClinicsService;
 
 @Service
 public class ClinicsServiceImpl implements ClinicsService {
