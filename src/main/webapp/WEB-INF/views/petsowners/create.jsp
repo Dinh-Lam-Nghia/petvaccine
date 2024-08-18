@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,72 +30,47 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="tile">
-					<h3 class="tile-title">Thêm mới thông tin khách hàng</h3>
-					<div class="tile-body">
-						<!-- 
-						<div class="row element-button">
-							<div class="col-sm-2">
-								<a class="btn btn-add btn-sm" data-toggle="modal"
-									data-target="#exampleModalCenter"><i
-									class="fas fa-folder-plus"></i> Thêm nhà cung cấp</a>
-							</div>
-							<div class="col-sm-2">
-								<a class="btn btn-add btn-sm" data-toggle="modal"
-									data-target="#adddanhmuc"><i class="fas fa-folder-plus"></i>
-									Thêm danh mục</a>
-							</div>
-							<div class="col-sm-2">
-								<a class="btn btn-add btn-sm" data-toggle="modal"
-									data-target="#addtinhtrang"><i class="fas fa-folder-plus"></i>
-									Thêm tình trạng</a>
+					<form:form action="${contextPath}/petsowners/create" method="POST"
+						modelAttribute="petOwners">
+						<h3 class="tile-title">Thêm mới thông tin khách hàng</h3>
+						<div class="tile-body">
+							<div class="row">
+								<form:input class="form-control" type="hidden" path="delete" value="1"/>
+								<div class="form-group col-md-3">
+									<label class="control-label">Họ và tên </label>
+									<form:input class="form-control" type="text" path="ownerName" />
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label">Số diện thoại</label>
+									<form:input class="form-control" type="number"
+										path="phoneNumber" />
+								</div>
+								<div class="form-group  col-md-3">
+									<label class="control-label">Email</label>
+									<form:input class="form-control" type="email" path="email" />
+								</div>
+								<div class="form-group  col-md-3">
+									<label class="control-label">Địa chỉ</label>
+									<form:input class="form-control" type="text" path="address" />
+								</div>
+								<div class="form-group  col-md-3">
+									<label class="control-label">Ngày đăng ký</label>
+									<form:input class="form-control" type="date"
+										path="dateOfRegistration" />
+								</div>
 							</div>
 						</div>
-					 -->
-						<form class="row">
-							<div class="form-group col-md-3">
-								<label class="control-label">Họ và tên </label> <input
-									class="form-control" type="text">
-							</div>
-							<div class="form-group col-md-3">
-								<label class="control-label">Số diện thoại</label> <input
-									class="form-control" type="number">
-							</div>
-							<div class="form-group  col-md-3">
-								<label class="control-label">Email</label> <input
-									class="form-control" type="email">
-							</div>
-							<div class="form-group  col-md-3">
-								<label class="control-label">Địa chỉ</label> <input
-									class="form-control" type="text">
-							</div>
-							<div class="form-group  col-md-3">
-								<label class="control-label">Ngày đăng ký</label> <input
-									class="form-control" type="date">
-							</div>
-							<!-- 
-							<div class="form-group col-md-3 ">
-								<label for="exampleSelect1" class="control-label">Nhà
-									cung cấp</label> <select class="form-control" id="exampleSelect1">
-									<option>-- Chọn nhà cung cấp --</option>
-									<option>Phong vũ</option>
-									<option>Thế giới di động</option>
-									<option>FPT</option>
-									<option>Võ Trường</option>
-								</select>
-							</div>
-							 
-							<div class="form-group col-md-12">
-								<label class="control-label">Mô tả sản phẩm</label>
-								<textarea class="form-control" name="mota" id="mota"></textarea>
-								<script>
-									CKEDITOR.replace('mota');
-								</script>
-							</div>-->
-					</div>
-					<button class="btn btn-save" type="button">Lưu lại</button>
-					<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+						<button class="btn btn-save" type="submit">Lưu lại</button>
+						<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+					</form:form>
 				</div>
+			</div>
+		</div>
 	</main>
+
+	<!--  -->
+	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<!--  -->
 
 </body>
 </html>
