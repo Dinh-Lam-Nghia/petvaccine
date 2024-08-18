@@ -1,4 +1,4 @@
-package fpt.fa.service;
+package fpt.fa.service.Impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import fpt.fa.entity.Veterinarians;
 import fpt.fa.repository.VeterinariansRepository;
+import fpt.fa.service.VeterinariansService;
 
 @Service
 public class VeterinariansServiceImpl implements VeterinariansService {
