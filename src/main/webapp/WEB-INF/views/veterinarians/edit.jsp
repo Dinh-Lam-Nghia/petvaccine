@@ -38,7 +38,9 @@
                             </div>
                             <div class="form-group col-md-12">
                                 <button class="btn btn-save" type="submit">Lưu lại</button>
-                                <a href="${contextPath}/veterinarians/list" class="btn btn-cancel">Hủy bỏ</a>
+                                <button class="btn btn-cancel" type="button"
+								onclick="window.location.href='${contextPath}/veterinarians/list'">Hủy
+								bỏ</button>
                             </div>
                         </form:form>
                     </div>

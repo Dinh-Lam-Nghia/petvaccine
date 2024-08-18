@@ -66,6 +66,12 @@
 							</div>
 						</div>
 						<table class="table table-hover table-bordered" id="sampleTable">
+						<form class="row">
+								<div class="form-group col-md-3" style="float: right;">
+									<label class="control-label">Tim kiếm </label> <input
+										class="form-control" type="text">
+								</div>
+							</form>
 							<thead>
 								<tr>
 									<th width="10"><input type="checkbox" id="all"></th>
