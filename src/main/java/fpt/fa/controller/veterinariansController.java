@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fpt.fa.entity.Clinics;
 import fpt.fa.entity.Veterinarians;
 import fpt.fa.service.VeterinariansService;
 
@@ -41,7 +42,7 @@ public class veterinariansController {
     // Hiển thị trang chỉnh sửa bác sĩ
     @GetMapping("/edit/{id}")
     public String editVeterinarians(@PathVariable("id") int id, Model model) {
-        Veterinarians veterinarian = veterinariansService.getVeterinariansById(id);
+        Veterinarians veterinarian = veterinariansService.getVeterinarianById(id);
         if (veterinarian != null) {
             model.addAttribute("title", "Chỉnh sửa thông tin bác sĩ");
             model.addAttribute("menu_veterinarians", "active");
@@ -56,38 +57,37 @@ public class veterinariansController {
     // Xóa bác sĩ
     @GetMapping("/delete/{id}")
     public String deleteVeterinarian(@PathVariable("id") int id) {
-        veterinariansService.deleteVeterinarians(id);
+        Veterinarians veterinarian = veterinariansService.getVeterinarianById(id);
+        if (veterinarian != null) {
+            veterinarian.setDelete(0);  // Đặt trạng thái delete thành 0 khi xóa
+            veterinariansService.updateVeterinarians(veterinarian);
+        }
         return "redirect:/veterinarians/list"; // Sau khi xóa, chuyển hướng về trang danh sách
     }
 
     // Thêm bác sĩ mới
-    @PostMapping("/save")
+    @PostMapping("/create")
     public String saveVeterinarian(@ModelAttribute("veterinarian") Veterinarians veterinarian, BindingResult result) {
         if (result.hasErrors()) {
             return "veterinarians/create";  // Nếu có lỗi, trả về form thêm mới
         }
-        veterinarian.setDelete(0);  // Đặt mặc định là chưa bị xóa
+        veterinarian.setDelete(1);  // Đặt mặc định là chưa bị xóa (delete = 1)
         veterinariansService.createVeterinarians(veterinarian);
         return "redirect:/veterinarians/list";  // Chuyển hướng về danh sách sau khi lưu
     }
 
-    // Cập nhật thông tin bác sĩ
     @PostMapping("/update")
     public String updateVeterinarian(@ModelAttribute("veterinarian") Veterinarians veterinarian) {
-        // Kiểm tra xem bác sĩ có tồn tại trong database hay không bằng cách tìm theo ID
-        Veterinarians existingVeterinarian = veterinariansService.getVeterinariansById(veterinarian.getVeterinarianID());
+        // Kiểm tra xem ID có tồn tại không, nếu có thì cập nhật
+        Veterinarians existingVeterinarian = veterinariansService.getVeterinarianById(veterinarian.getVeterinarianID());
 
         if (existingVeterinarian != null) {
-            // Cập nhật thông tin bác sĩ đã có, dù không có thay đổi gì
+            // Cập nhật các trường thông tin của bác sĩ hiện tại
             existingVeterinarian.setEmail(veterinarian.getEmail());
             existingVeterinarian.setVeterinarianName(veterinarian.getVeterinarianName());
             existingVeterinarian.setPhoneNumber(veterinarian.getPhoneNumber());
 
-            // Đặt thuộc tính delete thành 0, dù không có thay đổi gì
-            existingVeterinarian.setDelete(0);
-
-            // Lưu lại thông tin cập nhật hoặc không thay đổi
-            veterinariansService.updateVeterinarians(existingVeterinarian);
+            veterinariansService.updateVeterinarians(existingVeterinarian);  // Lưu lại thông tin cập nhật
         }
 
         return "redirect:/veterinarians/list";  // Chuyển hướng về trang danh sách sau khi lưu

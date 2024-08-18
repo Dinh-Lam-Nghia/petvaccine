@@ -11,23 +11,24 @@ import fpt.fa.repository.VeterinariansRepository;
 
 @Service
 public class VeterinariansServiceImpl implements VeterinariansService {
+
     @Autowired
     private VeterinariansRepository veterinariansRepository;
 
     @Override
     public List<Veterinarians> getAllVeterinarians() {
-        return veterinariansRepository.findByDelete(0);
+        return veterinariansRepository.findByDelete(1);
     }
 
     @Override
-    public Veterinarians getVeterinariansById(int veterinarianID) {
+    public Veterinarians getVeterinarianById(int veterinarianID) {
         Optional<Veterinarians> optionalVeterinarian = veterinariansRepository.findById(veterinarianID);
-        return optionalVeterinarian.orElse(null);  // Return the veterinarian if found, otherwise return null
+        return optionalVeterinarian.orElse(null);
     }
 
     @Override
-    public Veterinarians createVeterinarians(Veterinarians veterinarian) {
-        return veterinariansRepository.save(veterinarian);
+    public Veterinarians createVeterinarians(Veterinarians veterinarians) {
+        return veterinariansRepository.save(veterinarians);
     }
 
     @Override
@@ -35,12 +36,11 @@ public class VeterinariansServiceImpl implements VeterinariansService {
         return veterinariansRepository.save(veterinarians);
     }
 
-
     @Override
     public void deleteVeterinarians(int veterinarianID) {
         Veterinarians veterinarian = veterinariansRepository.findById(veterinarianID).orElse(null);
         if (veterinarian != null) {
-            veterinarian.setDelete(1);
+            veterinarian.setDelete(0);
             veterinariansRepository.save(veterinarian);
         }
     }
