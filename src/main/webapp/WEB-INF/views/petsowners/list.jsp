@@ -72,10 +72,11 @@
 						</div>
 						<table class="table table-hover table-bordered js-copytextarea"
 							cellpadding="0" cellspacing="0" border="0" id="sampleTable">
-							<form class="row">
+							<form method="get" action="${contextPath}/petsowners/list" class="row">
 								<div class="form-group col-md-3" style="float: right;">
-									<label class="control-label">Tim kiếm </label> <input
-										class="form-control" type="text">
+									<label class="control-label">Tìm kiếm</label> <input
+										class="form-control" type="text" name="keyword"
+										placeholder="Nhập tên hoặc địa chỉ" value="${param.keyword}">
 								</div>
 							</form>
 							<thead>
@@ -90,46 +91,27 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td width="10"><input type="checkbox" name="check1"
-										value="1"></td>
-									<td>Hồ Thị Thanh Ngân</td>
-									<td>0464537463</td>
-									<td>12/02/1999</td>
-									<td>Nữ</td>
-									<td>0926737168</td>
-									<td class="table-td-center">
-										<button class="btn btn-primary btn-sm trash" type="button"
-											title="Xóa" onclick="myFunction(this)">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-										<button class="btn btn-primary btn-sm edit" type="button"
-											title="Sửa" id="show-emp" data-toggle="modal"
-											data-target="#ModalUP">
-											<i class="fas fa-edit"></i>
-										</button>
-									</td>
-								</tr>
-								<tr>
-									<td width="10"><input type="checkbox" name="check1"
-										value="1"></td>
-									<td>Hồ Thị Thanh Ngân</td>
-									<td>0464537463</td>
-									<td>12/02/1999</td>
-									<td>Nữ</td>
-									<td>0926737168</td>
-									<td class="table-td-center">
-										<button class="btn btn-primary btn-sm trash" type="button"
-											title="Xóa" onclick="myFunction(this)">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-										<button class="btn btn-primary btn-sm edit" type="button"
-											title="Sửa" id="show-emp" data-toggle="modal"
-											data-target="#ModalUP">
-											<i class="fas fa-edit"></i>
-										</button>
-									</td>
-								</tr>
+							<c:forEach items="${petOwners}" var="pet">
+									<tr>
+										<td width="10"><input type="checkbox" name="check1"
+											value="1"></td>
+										<td>${pet.ownerName }</td>
+										<td>${pet.phoneNumber }</td>
+										<td>${pet.email }</td>
+										<td>${pet.address }</td>
+										<td>${pet.dateOfRegistration }</td>
+										<td><a
+											href="${contextPath}/petsowners/edit?id=${pet.ownerID}"
+											class="btn btn-primary btn-sm edit" title="Sửa"><i
+												class="fas fa-edit"></i></a> 
+												<a href="${contextPath}/petsowners/delete?id=${pet.ownerID}"
+											class="btn btn-primary btn-sm trash" title="Xóa"
+											onclick="return confirm('Are you sure?');"><i
+												class="fas fa-trash-alt"></i></a></td>
+									</tr>
+								</c:forEach>
+								
+								
 							</tbody>
 						</table>
 					</div>
