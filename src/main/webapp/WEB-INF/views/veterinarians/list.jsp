@@ -67,15 +67,16 @@
 						</div>
 						<table class="table table-hover table-bordered" id="sampleTable">
 							<thead>
-								<form action="${contextPath}/veterinarians/list" method="get"
+								<form method="get" action="${contextPath}/veterinarians/list"
 									class="row">
 									<div class="form-group col-md-3" style="float: right;">
 										<label class="control-label">Tìm kiếm</label> <input
-											class="form-control" type="text" name="search"
-											value="${searchTerm}">
+											class="form-control" type="text" name="keyword"
+											placeholder="Nhập tên, email hoặc số điện thoại"
+											value="${param.keyword}">
 									</div>
-									<button type="submit" class="btn btn-primary">Tìm kiếm</button>
 								</form>
+
 								<tr>
 									<th width="10"><input type="checkbox" id="all"></th>
 									<th>Email</th>
@@ -93,7 +94,7 @@
 										<td>${veterinarian.veterinarianName}</td>
 										<td>${veterinarian.phoneNumber}</td>
 										<td><a
-											href="${contextPath}/veterinarians/edit/${veterinarian.veterinarianID}"
+											href="${contextPath}/veterinarians/edit?id=${veterinarian.veterinarianID}"
 											class="btn btn-sm btn-edit" title="Sửa"> <i
 												class="fas fa-edit"></i>
 										</a> <a
@@ -102,7 +103,6 @@
 											onclick="return confirm('Bạn có chắc chắn muốn xóa bác sĩ này?');">
 												<i class="fas fa-trash-alt"></i>
 										</a></td>
-
 									</tr>
 								</c:forEach>
 							</tbody>

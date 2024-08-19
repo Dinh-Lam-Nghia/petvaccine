@@ -31,27 +31,30 @@
 					<div class="tile-body">
 						<form:form method="post" action="${contextPath}/clinics/create"
 							modelAttribute="clinic" class="row">
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-4">
 								<label class="control-label">Tên phòng khám</label>
 								<form:input path="clinicName" class="form-control"
 									required="required" />
 							</div>
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-4">
 								<label class="control-label">Địa chỉ</label>
 								<form:input path="address" class="form-control"
 									required="required" />
 							</div>
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-4">
 								<label class="control-label">Số điện thoại</label>
 								<form:input path="phoneNumber" class="form-control"
 									required="required" />
 							</div>
+							<div class="form-group col-md-12">
+								<button class="btn btn-save" type="submit">Lưu lại</button>
 
-							<button class="btn btn-save" type="submit">Lưu lại</button>
+								<button class="btn btn-cancel" type="button"
+									onclick="window.location.href='${contextPath}/clinics/list'">Hủy
+									bỏ</button>
+							</div>
 
-							<button class="btn btn-cancel" type="button"
-								onclick="window.location.href='${contextPath}/clinics/list'">Hủy
-								bỏ</button>
+
 
 
 						</form:form>

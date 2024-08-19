@@ -66,12 +66,16 @@
 							</div>
 						</div>
 						<table class="table table-hover table-bordered" id="sampleTable">
-						<form class="row">
+							<form method="get" action="${contextPath}/clinics/list"
+								class="row">
 								<div class="form-group col-md-3" style="float: right;">
-									<label class="control-label">Tim kiếm </label> <input
-										class="form-control" type="text">
+									<label class="control-label">Tìm kiếm</label> <input
+										class="form-control" type="text" name="keyword"
+										placeholder="Nhập tên, địa chỉ hoặc số điện thoại"
+										value="${param.keyword}">
 								</div>
 							</form>
+
 							<thead>
 								<tr>
 									<th width="10"><input type="checkbox" id="all"></th>
@@ -90,12 +94,12 @@
 										<td>${clinic.clinicName}</td>
 										<td>${clinic.phoneNumber}</td>
 										<td><a
-											href="${contextPath}/clinics/edit/${clinic.clinicID}"
+											href="${contextPath}/clinics/edit?id=${clinic.clinicID}"
 											class="btn btn-sm btn-edit" title="Sửa"><i
 												class="fas fa-edit"></i></a> <a
 											href="${contextPath}/clinics/delete/${clinic.clinicID}"
 											class="btn btn-sm btn-delete" title="Xóa"
-											onclick="return confirm('Are you sure?');"><i
+											onclick="return confirm('Bạn có chắc chắn muốn xóa phòng khám này?');"><i
 												class="fas fa-trash-alt"></i></a></td>
 									</tr>
 								</c:forEach>

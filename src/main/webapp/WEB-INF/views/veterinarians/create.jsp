@@ -29,7 +29,7 @@
                     <h3 class="tile-title">Thêm mới thông tin bác sĩ</h3>
                     <div class="tile-body">
                         <!-- Form liên kết với đối tượng Veterinarians -->
-                        <form:form action="${contextPath}/veterinarians/save" method="post" modelAttribute="veterinarian" class="row">
+                        <form:form action="${contextPath}/veterinarians/create" method="post" modelAttribute="veterinarian" class="row">
                             <div class="form-group col-md-4">
                                 <label class="control-label">Email</label>
                                 <form:input path="email" class="form-control" type="email" required="true" />

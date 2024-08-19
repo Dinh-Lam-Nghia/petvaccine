@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fpt.fa.entity.Clinics;
 import fpt.fa.service.ClinicsService;
@@ -22,10 +23,14 @@ public class clinicsController {
 
     // Hiển thị danh sách phòng khám
     @GetMapping("/list")
-    public String listClinics(Model model) {
+    public String listClinics(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+        if (keyword != null && !keyword.isEmpty()) {
+            model.addAttribute("clinicsList", clinicsService.searchClinics(keyword));
+        } else {
+            model.addAttribute("clinicsList", clinicsService.getAllClinics());
+        }
         model.addAttribute("title", "Quản lý phòng khám");
         model.addAttribute("menu_clinics", "active");
-        model.addAttribute("clinicsList", clinicsService.getAllClinics());
         return "clinics/list";
     }
 
@@ -50,8 +55,8 @@ public class clinicsController {
     }
 
     // Hiển thị trang chỉnh sửa phòng khám
-    @GetMapping("/edit/{id}")
-    public String editClinicForm(@PathVariable("id") int id, Model model) {
+    @GetMapping("/edit")
+    public String editClinicForm(@RequestParam("id") int id, Model model) {
         Clinics clinic = clinicsService.getClinicById(id);
         if (clinic != null) {
             model.addAttribute("title", "Chỉnh sửa phòng khám");
