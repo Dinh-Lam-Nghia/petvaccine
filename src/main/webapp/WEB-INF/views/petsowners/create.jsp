@@ -33,9 +33,11 @@
 					<form:form action="${contextPath}/petsowners/create" method="POST"
 						modelAttribute="petOwners">
 						<h3 class="tile-title">Thêm mới thông tin khách hàng</h3>
+						
 						<div class="tile-body">
 							<div class="row">
-								<form:input class="form-control" type="hidden" path="delete" value="1"/>
+								<form:input class="form-control" type="hidden" path="delete"
+									value="1" />
 								<div class="form-group col-md-3">
 									<label class="control-label">Họ và tên </label>
 									<form:input class="form-control" type="text" path="ownerName" />
