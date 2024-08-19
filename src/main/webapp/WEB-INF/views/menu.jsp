@@ -14,7 +14,6 @@
 
 
 		<!-- User Menu-->
-		<li><p class="text-white p-3">Hello, <a>${sessionScope.attributeName}</a></p></li>
 		<li><a class="app-nav__item" href="/logout.html"><i
 				class='bx bx-log-out bx-rotate-180'></i> </a></li>
 	</ul>
