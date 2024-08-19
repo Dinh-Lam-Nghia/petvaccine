@@ -54,8 +54,7 @@
                     <!--=====FOOTER======-->
                     <div class="text-center p-t-70 txt2">
                         Phần mềm quản lý tiêm vắc-xin cho thú cưng <i class="far fa-copyright" aria-hidden="true"></i>
-                        <script type="text/javascript">document.write(new Date().getFullYear());</script> <a
-                            class="txt2" href="https://www.facebook.com/truongvo.vd1503/"></a>
+                        <script type="text/javascript">document.write(new Date().getFullYear());</script>
                     </div>
                 </form>
             </div>
