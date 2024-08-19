@@ -58,10 +58,6 @@ public class Account {
 		this.delete = delete;
 	}
 
-	public Account() {
-		super();
-	}
-
 	public int getUserID() {
 		return userID;
 	}
@@ -94,5 +90,19 @@ public class Account {
 		this.positionID = positionID;
 	}
 
+	public Account() {
+		super();
+	}
+
+	public Account(String userName, String userPass, String displayName, String phone, int delete,
+			Position positionID) {
+		super();
+		this.userName = userName;
+		this.userPass = userPass;
+		this.displayName = displayName;
+		this.phone = phone;
+		this.delete = delete;
+		this.positionID = positionID;
+	}
 	
 }
