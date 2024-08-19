@@ -45,4 +45,9 @@ public class VeterinariansServiceImpl implements VeterinariansService {
             veterinariansRepository.save(veterinarian);
         }
     }
+    
+    @Override
+    public List<Veterinarians> searchVeterinarians(String keyword) {
+        return veterinariansRepository.searchVeterinarians(keyword);
+    }
 }

@@ -1,5 +1,7 @@
 package fpt.fa.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fpt.fa.entity.Clinics;
 import fpt.fa.entity.Veterinarians;
@@ -23,10 +26,19 @@ public class veterinariansController {
 
     // Hiển thị danh sách bác sĩ
     @GetMapping("/list")
-    public String listVeterinarians(Model model) {
+    public String listVeterinarians(Model model, @RequestParam(value = "keyword", required = false) String keyword) {
         model.addAttribute("title", "Quản lý bác sĩ");
         model.addAttribute("menu_veterinarians", "active");
-        model.addAttribute("veterinariansList", veterinariansService.getAllVeterinarians());
+        
+        List<Veterinarians> veterinariansList;
+        if (keyword != null && !keyword.isEmpty()) {
+            veterinariansList = veterinariansService.searchVeterinarians(keyword);
+        } else {
+            veterinariansList = veterinariansService.getAllVeterinarians();
+        }
+        
+        model.addAttribute("veterinariansList", veterinariansList);
+        model.addAttribute("keyword", keyword);  // To keep the search keyword in the input box
         return "veterinarians/list";
     }
 
@@ -40,8 +52,8 @@ public class veterinariansController {
     }
 
     // Hiển thị trang chỉnh sửa bác sĩ
-    @GetMapping("/edit/{id}")
-    public String editVeterinarians(@PathVariable("id") int id, Model model) {
+    @GetMapping("/edit")
+    public String editVeterinarians(@RequestParam("id") int id, Model model) {
         Veterinarians veterinarian = veterinariansService.getVeterinarianById(id);
         if (veterinarian != null) {
             model.addAttribute("title", "Chỉnh sửa thông tin bác sĩ");
@@ -53,6 +65,7 @@ public class veterinariansController {
             return "redirect:/veterinarians/list";
         }
     }
+
 
     // Xóa bác sĩ
     @GetMapping("/delete/{id}")

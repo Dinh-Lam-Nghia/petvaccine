@@ -9,4 +9,5 @@ public interface ClinicsService {
     Clinics createClinic(Clinics clinic);
     Clinics updateClinic(Clinics clinic);
     void deleteClinic(int clinicID);
+    List<Clinics> searchClinics(String keyword);
 }
