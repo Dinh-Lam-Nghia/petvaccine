@@ -33,11 +33,34 @@
 									href="${contextPath }/clinics/create" title="Thêm"><i
 									class="fas fa-plus"></i> Thêm phòng khám mới</a>
 							</div>
+							<!-- Thêm form cho việc tải lên file Excel -->
+							<form id="importForm" method="post" enctype="multipart/form-data"
+								action="${contextPath}/clinics/import">
+								<input type="file" name="file" accept=".xlsx, .xls"
+									style="display: none;" id="fileInput" />
+							</form>
+
+							<!-- Nút tải từ file đã có trong HTML -->
 							<div class="col-sm-2">
 								<a class="btn btn-delete btn-sm nhap-tu-file" type="button"
-									title="Nhập" onclick="myFunction(this)"><i
+									title="Nhập"
+									onclick="document.getElementById('fileInput').click();"><i
 									class="fas fa-file-upload"></i> Tải từ file</a>
 							</div>
+
+							<!-- JavaScript để tự động submit form sau khi chọn file -->
+							<script>
+								document.getElementById('fileInput')
+										.addEventListener(
+												'change',
+												function() {
+													document.getElementById(
+															'importForm')
+															.submit();
+												});
+							</script>
+
+
 
 							<div class="col-sm-2">
 								<a class="btn btn-delete btn-sm print-file" type="button"
