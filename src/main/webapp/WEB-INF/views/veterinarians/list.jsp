@@ -95,19 +95,15 @@
 										<td>${veterinarian.phoneNumber}</td>
 										<td><a
 											href="${contextPath}/veterinarians/edit?id=${veterinarian.veterinarianID}"
-											class="btn btn-sm btn-edit" title="Sửa"> <i
-												class="fas fa-edit"></i>
-										</a> <a
+											class="btn btn-primary btn-sm edit" title="Sửa"><i
+												class="fas fa-edit"></i></a> <a
 											href="${contextPath}/veterinarians/delete/${veterinarian.veterinarianID}"
-											class="btn btn-sm btn-delete" title="Xóa"
-											onclick="return confirm('Bạn có chắc chắn muốn xóa bác sĩ này?');">
-												<i class="fas fa-trash-alt"></i>
-										</a></td>
+											class="btn btn-primary btn-sm trash" title="Xóa"
+											onclick="return confirm('Bạn có chắc chắn muốn xóa bác sĩ này?');"><i
+												class="fas fa-trash-alt"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
-
-
 						</table>
 					</div>
 				</div>
