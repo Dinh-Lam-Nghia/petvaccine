@@ -1,10 +1,11 @@
-package fpt.fa.service;
+package fpt.fa.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fpt.fa.entity.Account;
 import fpt.fa.repository.AccountRepository;
+import fpt.fa.service.AccountService;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -31,8 +32,8 @@ public class AccountServiceImpl implements AccountService {
 				return -1; //k tontai
 			}
 			
-			if(account.getUserPass()==password) {
-				if(account.getDelete()== 1) {
+			if(account.getUserPass().equals(password)) {
+				if(account.getPositionID().equals(1)) {
 					return 1; //admin
 				} else {
 					return 2; //customer
@@ -41,6 +42,10 @@ public class AccountServiceImpl implements AccountService {
 				return 0; //sai mk
 			}
 			
+	}
+	public Account checkAccount(String username) {
+		Account account = repository.findByuserName(username);
+		return account;
 	}
 	
 	public boolean checkUserName(String username) {
