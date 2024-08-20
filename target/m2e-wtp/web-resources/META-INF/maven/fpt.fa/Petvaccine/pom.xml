@@ -85,15 +85,6 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>2.1.0.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>com.fsoft</groupId>
-			<artifactId>JWebPA101</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.2.3</version>
-
-		</dependency>
+		
 	</dependencies>
 </project>
