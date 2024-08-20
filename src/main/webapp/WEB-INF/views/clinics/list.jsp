@@ -116,12 +116,13 @@
 										<td>${clinic.address}</td>
 										<td>${clinic.clinicName}</td>
 										<td>${clinic.phoneNumber}</td>
+
 										<td><a
 											href="${contextPath}/clinics/edit?id=${clinic.clinicID}"
-											class="btn btn-sm btn-edit" title="Sửa"><i
+											class="btn btn-primary btn-sm edit" title="Sửa"><i
 												class="fas fa-edit"></i></a> <a
 											href="${contextPath}/clinics/delete/${clinic.clinicID}"
-											class="btn btn-sm btn-delete" title="Xóa"
+											class="btn btn-primary btn-sm trash" title="Xóa"
 											onclick="return confirm('Bạn có chắc chắn muốn xóa phòng khám này?');"><i
 												class="fas fa-trash-alt"></i></a></td>
 									</tr>
