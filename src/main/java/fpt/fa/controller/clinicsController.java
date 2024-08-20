@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fpt.fa.entity.Clinics;
 import fpt.fa.service.ClinicsService;
@@ -86,4 +88,10 @@ public class clinicsController {
         }
         return "redirect:/clinics/list";
     }
+    @PostMapping("/import")
+    public String importClinicsFromExcel(@RequestParam("file") MultipartFile file) {
+        clinicsService.importClinicsFromExcel(file);
+        return "redirect:/clinics/list"; // Sau khi import, chuyển hướng về trang danh sách
+    }
+
 }
