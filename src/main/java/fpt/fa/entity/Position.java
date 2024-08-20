@@ -61,4 +61,11 @@ public class Position {
 		this.userID = userID;
 	}
 
+	public Position(int positionID, String name, int delete) {
+		super();
+		this.positionID = positionID;
+		this.name = name;
+		this.delete = delete;
+	}
+	
 }

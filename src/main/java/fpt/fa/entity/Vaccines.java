@@ -1,5 +1,6 @@
 package fpt.fa.entity;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -25,7 +26,9 @@ public class Vaccines {
 	@Column(columnDefinition = "nvarchar(250)")
 	private String diseasePrevented;
 
-	private int duration;
+	private Date duration;
+	
+	private Date receiptDate;
 
 	@OneToMany(mappedBy = "vaccineID")
 	private List<VaccinationRecords> recordID;
@@ -77,14 +80,22 @@ public class Vaccines {
 		this.diseasePrevented = diseasePrevented;
 	}
 
-	public int getDuration() {
+	public Date getDuration() {
 		return duration;
 	}
-
-	public void setDuration(int duration) {
+	
+	public void setDuration(Date duration) {
 		this.duration = duration;
 	}
 
+	public Date ReceiptDate() {
+		return receiptDate;
+	}
+	
+	public void setReceiptDate(Date receiptDate) {
+		this.receiptDate = receiptDate;
+	}
+	
 	public List<VaccinationRecords> getRecordID() {
 		return recordID;
 	}
@@ -92,4 +103,17 @@ public class Vaccines {
 	public void setRecordID(List<VaccinationRecords> recordID) {
 		this.recordID = recordID;
 	}
+
+	public Vaccines(int vaccineID, String vaccineName, String manufacturer, String diseasePrevented, Date duration,Date receiptDate, int delete) {
+		super();
+		this.vaccineID = vaccineID;
+		this.vaccineName = vaccineName;
+		this.manufacturer = manufacturer;
+		this.diseasePrevented = diseasePrevented;
+		this.duration = duration;
+		this.receiptDate = receiptDate;
+		this.delete = delete;
+	}
+	
+	
 }

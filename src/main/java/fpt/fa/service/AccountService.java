@@ -8,4 +8,5 @@ public interface AccountService {
 	void update(Account account);
 	int Login(String username,String password);
 	boolean checkUserName(String username);
+	Account checkAccount(String username);
 }

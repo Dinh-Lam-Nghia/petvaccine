@@ -21,14 +21,14 @@
 		<div class="app-title">
 			<ul class="app-breadcrumb breadcrumb">
 				<li class="breadcrumb-item"><a
-					href="${contextPath }/petsowners/list">Danh sách khách hàng</a></li>
-				<li class="breadcrumb-item">Thêm khách hàng mới</li>
+					href="${contextPath }/petsowners/list">Danh sách Vaccines</a></li>
+				<li class="breadcrumb-item">Thêm Vaccine</li>
 			</ul>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="tile">
-					<h3 class="tile-title">Thêm mới thông tin khách hàng</h3>
+					<h3 class="tile-title">Thêm mới thông tin Vaccine</h3>
 					<div class="tile-body">
 						<!-- 
 						<div class="row element-button">
@@ -51,20 +51,20 @@
 					 -->
 						<form class="row">
 							<div class="form-group col-md-3">
-								<label class="control-label">Họ và tên </label> <input
+								<label class="control-label">Tên Vaccine</label> <input
 									class="form-control" type="text">
 							</div>
 							<div class="form-group col-md-3">
-								<label class="control-label">Số diện thoại</label> <input
+								<label class="control-label">Nhà sản xuất</label> <input
 									class="form-control" type="number">
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Email</label> <input
+								<label class="control-label">Ngừa bệnh</label> <input
 									class="form-control" type="email">
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Địa chỉ</label> <input
-									class="form-control" type="text">
+								<label class="control-label">Hạn sử dụng</label> <input
+									class="form-control" type="date">
 							</div>
 							<div class="form-group  col-md-3">
 								<label class="control-label">Ngày đăng ký</label> <input

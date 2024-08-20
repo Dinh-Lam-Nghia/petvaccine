@@ -20,7 +20,7 @@
 		<div class="app-title">
 			<ul class="app-breadcrumb breadcrumb side">
 				<li class="breadcrumb-item active"><a href="#"><b>Danh
-							sách khách hàng</b></a></li>
+							sách Vaccines</b></a></li>
 			</ul>
 			<div id="clock"></div>
 		</div>
@@ -35,7 +35,7 @@
 
 								<a class="btn btn-add btn-sm"
 									href="${contextPath }/vaccines/create" title="Thêm"><i
-									class="fas fa-plus"></i> Thêm khách hàng mới</a>
+									class="fas fa-plus"></i> Thêm Vaccine</a>
 							</div>
 							<div class="col-sm-2">
 								<a class="btn btn-delete btn-sm nhap-tu-file" type="button"
@@ -80,55 +80,42 @@
 							<thead>
 								<tr>
 									<th width="10"><input type="checkbox" id="all"></th>
-									<th>Họ và tên</th>
-									<th>Số Điện Toại</th>
-									<th>Email</th>
-									<th>Địa chỉ</th>
+									<th>Tên Vaccine</th>
+									<th>Nhà sản xuất</th>
+									<th>Ngừa bệnh</th>
+									<th>Hạn sử dụng</th>
 									<th>Ngày đăng ký</th>
 									<th width="100">Tính năng</th>
 								</tr>
+								
 							</thead>
 							<tbody>
-								<tr>
-									<td width="10"><input type="checkbox" name="check1"
-										value="1"></td>
-									<td>Hồ Thị Thanh Ngân</td>
-									<td>0464537463</td>
-									<td>12/02/1999</td>
-									<td>Nữ</td>
-									<td>0926737168</td>
-									<td class="table-td-center">
-										<button class="btn btn-primary btn-sm trash" type="button"
-											title="Xóa" onclick="myFunction(this)">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-										<button class="btn btn-primary btn-sm edit" type="button"
-											title="Sửa" id="show-emp" data-toggle="modal"
-											data-target="#ModalUP">
-											<i class="fas fa-edit"></i>
-										</button>
-									</td>
-								</tr>
-								<tr>
-									<td width="10"><input type="checkbox" name="check1"
-										value="1"></td>
-									<td>Hồ Thị Thanh Ngân</td>
-									<td>0464537463</td>
-									<td>12/02/1999</td>
-									<td>Nữ</td>
-									<td>0926737168</td>
-									<td class="table-td-center">
-										<button class="btn btn-primary btn-sm trash" type="button"
-											title="Xóa" onclick="myFunction(this)">
-											<i class="fas fa-trash-alt"></i>
-										</button>
-										<button class="btn btn-primary btn-sm edit" type="button"
-											title="Sửa" id="show-emp" data-toggle="modal"
-											data-target="#ModalUP">
-											<i class="fas fa-edit"></i>
-										</button>
-									</td>
-								</tr>
+								<c:forEach items="${vaccines.getContent() }" var="v">
+									<tr>
+										<td width="10"><input type="checkbox" name="check1"
+											value="1"></td>
+										<td>${v.vaccineName}</td>
+										<td>${v.manufacturer }</td>
+										<td>${v.diseasePrevented }</td>
+										<td>${v.duration }</td>
+										<td>0926737168</td>
+										<td class="table-td-center">
+											<form action="${contextPath }/vaccines/delete/${v.vaccineID}" method="post">
+												<button class="btn btn-primary btn-sm trash" type="button"
+													title="Xóa" onclick="myFunction(this)">
+													<i class="fas fa-trash-alt"></i>
+												</button>
+											</form>
+											<form action="${contextPath }/vaccines/edit/${v.vaccineID}" method="post">
+												<button class="btn btn-primary btn-sm edit" type="button"
+													title="Sửa" id="show-emp" data-toggle="modal"
+													data-target="#ModalUP">
+													<i class="fas fa-edit"></i>
+												</button>
+											</form>
+										</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
