@@ -57,7 +57,7 @@
 				class="app-menu__label">Quản lý khách hàng</span></a></li>
 
 		<li><a class="app-menu__item ${menu_pets }"
-			href="table-data-product.html"><i class='bx bxs-cat'
+			href="${contextPath }/pets/list"><i class='bx bxs-cat'
 				style="font-size: 24px; padding-right: 19px"></i><span
 				class="app-menu__label">Quản lý thú cưng</span></a></li>
 

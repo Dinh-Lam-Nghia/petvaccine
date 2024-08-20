@@ -1,6 +1,9 @@
 package fpt.fa.service;
 
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import fpt.fa.entity.Clinics;
 
 public interface ClinicsService {
@@ -10,4 +13,5 @@ public interface ClinicsService {
     Clinics updateClinic(Clinics clinic);
     void deleteClinic(int clinicID);
     List<Clinics> searchClinics(String keyword);
+    void importClinicsFromExcel(MultipartFile file);
 }
