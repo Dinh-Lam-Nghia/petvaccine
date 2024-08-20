@@ -34,29 +34,29 @@
 					<h3 class="tile-title">Sửa thông tin khách hàng</h3>
 					<div class="tile-body">
 							<div class="row">
-								<form:input class="form-control" type="hidden" path="ownerID" value="${petsowner.ownerID }" />
-								<form:input class="form-control" type="hidden" path="delete" value="${petsowner.delete }" />
+								<form:input class="form-control" type="hidden" path="ownerID" />
+								<form:input class="form-control" type="hidden" path="delete" />
 								<div class="form-group col-md-3">
 									<label class="control-label">Họ và tên </label>
-									<form:input class="form-control" type="text" path="ownerName" value="${petsowner.ownerName }"/>
+									<form:input class="form-control" type="text" path="ownerName" />
 								</div>
 								<div class="form-group col-md-3">
 									<label class="control-label">Số diện thoại</label>
 									<form:input class="form-control" type="number"
-										path="phoneNumber" value="${petsowner.phoneNumber }"/>
+										path="phoneNumber" />
 								</div>
 								<div class="form-group  col-md-3">
 									<label class="control-label">Email</label>
-									<form:input class="form-control" type="email" path="email" value="${petsowner.email }"/>
+									<form:input class="form-control" type="email" path="email" />
 								</div>
 								<div class="form-group  col-md-3">
 									<label class="control-label">Địa chỉ</label>
-									<form:input class="form-control" type="text" path="address" value="${petsowner.address }"/>
+									<form:input class="form-control" type="text" path="address" />
 								</div>
 								<div class="form-group  col-md-3">
 									<label class="control-label">Ngày đăng ký</label>
 									<form:input class="form-control" type="date"
-										path="dateOfRegistration" value="${petsowner.dateOfRegistration }"/>
+										path="dateOfRegistration" />
 								</div>
 							</div>
 						</div>
