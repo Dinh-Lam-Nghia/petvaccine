@@ -74,15 +74,14 @@
 							<form method="get" action="${contextPath}/pets/list" class="row">
 								<div class="form-group col-md-3" style="float: right;">
 									<label class="control-label">Tìm kiếm</label> <input
-										class="form-control" type="text" name="keyword"
-										placeholder="Nhập tên hoặc địa chỉ" value="${param.keyword}">
+										class="form-control" type="text" name="keyword"  value="${param.keyword}">
 								</div>
 							</form>
 							<thead>
 								<tr>
 									<th width="10"><input type="checkbox" id="all"></th>
-									<th>Chủ thú cưng</th>
 									<th>Tên thú cưng</th>
+									<th>Chủ thú cưng</th>
 									<th>Loài</th>
 									<th>Giống loài</th>
 									<th>Ngày sinh</th>
@@ -98,6 +97,7 @@
 											value="1"></td>
 										<td>${pet.petName }</td>
 										<td>${pet.ownerID.ownerName }</td>
+										<td>${pet.species }</td>
 										<td>${pet.breed }</td>
 										<td>${pet.dateOfBirth }</td>
 										<td>${pet.gender }</td>

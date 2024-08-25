@@ -9,4 +9,5 @@ public interface PetsService {
 	List<Pets> findByDelete(int delete);
 	void deleteById(int id);
 	Pets findById(int id);
+	List<Pets> search(String search);
 }
