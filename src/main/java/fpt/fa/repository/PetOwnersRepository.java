@@ -10,6 +10,7 @@ import fpt.fa.entity.PetOwners;
 @Repository
 public interface PetOwnersRepository extends JpaRepository<PetOwners, Integer> { 
 	List<PetOwners> findByDelete(int delete);
+	PetOwners findByOwnerName(String ownerName);
 	List<PetOwners> findAllByOwnerNameContainingOrPhoneNumberContainingOrEmailContainingOrAddressContainingAndDelete(String ownerName, String phoneNumber, String email, String address, int delete);
 
 

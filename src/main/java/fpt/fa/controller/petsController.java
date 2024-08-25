@@ -26,9 +26,14 @@ public class petsController {
 	
 	
 	@GetMapping("/list")
-	public String list_pets( Model model) {
+	public String list_pets(@RequestParam(name = "keyword", required = false) String keyword,  Model model) {
+		if (keyword != null && !keyword.isEmpty()) {
+			model.addAttribute("pets", petsService.search(keyword));
+		} else {
+			model.addAttribute("pets", petsService.findByDelete(1));
+		}
 		model.addAttribute("menu_pets", "active");
-		model.addAttribute("pets", petsService.findByDelete(1));
+        model.addAttribute("title", "PetVaccines");
 		return "pets/list";
 	}
 	
@@ -37,6 +42,7 @@ public class petsController {
 		model.addAttribute("menu_pets", "active");	
 		model.addAttribute("pets", new Pets());
 		model.addAttribute("petowners", petOwnersServicel.findByDelete());
+        model.addAttribute("title", "PetVaccines");
 		return "pets/create";
 	}
 	
@@ -56,6 +62,7 @@ public class petsController {
 		model.addAttribute("pets", pet);
 		model.addAttribute("petowners", petOwnersServicel.findByDelete());
 		model.addAttribute("menu_pets", "active"); 
+        model.addAttribute("title", "PetVaccines");
 		return "pets/edit";
 	}
 
