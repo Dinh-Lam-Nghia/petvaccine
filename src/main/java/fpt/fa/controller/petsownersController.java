@@ -1,4 +1,4 @@
-package fpt.fa.controller; 
+package fpt.fa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +21,10 @@ public class petsownersController {
 	private PetOwnersService petOwnersService;
 
 	@GetMapping("/list")
-	public String list_Petsowners(@RequestParam(name="keyword", required = false) String keyword, Model model) {
+	public String list_Petsowners(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
 		if (keyword != null && !keyword.isEmpty()) {
 			model.addAttribute("petOwners", petOwnersService.search(keyword));
-		}else { 
+		} else {
 			model.addAttribute("petOwners", petOwnersService.findByDelete());
 		}
 		model.addAttribute("menu_petsowners", "active");
@@ -46,15 +46,16 @@ public class petsownersController {
 
 	@GetMapping("/edit")
 	public String edit_Petsowners(@RequestParam(name = "id", required = true) int ownerID, Model model) {
-		PetOwners petOwners = petOwnersService.findById(ownerID);
-		System.out.println("NGHIA: " + petOwners.getPhoneNumber());
-		if (petOwners != null) {
+		PetOwners petOwner = petOwnersService.findById(ownerID);
+		if (petOwner != null) {
 			model.addAttribute("menu_petsowners", "active");
-			model.addAttribute("petOwners", new PetOwners());
-			model.addAttribute("petsowner", petOwners);
+			model.addAttribute("petOwners", petOwner);
 
+			return "petsowners/edit";
+		} else {
+
+			return "redirect:/petsowners/list";
 		}
-		return "petsowners/edit";
 
 	}
 
