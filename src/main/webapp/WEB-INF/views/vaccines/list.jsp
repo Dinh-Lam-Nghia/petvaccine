@@ -71,10 +71,11 @@
 						</div>
 						<table class="table table-hover table-bordered js-copytextarea"
 							cellpadding="0" cellspacing="0" border="0" id="sampleTable">
-							<form class="row">
+							<form class="row border" action="${contextPath}/vaccines/search" method="get">
 								<div class="form-group col-md-3" style="float: right;">
 									<label class="control-label">Tim kiếm </label> 
-									<input class="form-control" type="text">
+									<input class="form-control" type="text" name="nameVaccine">
+									<button type="submit">Tìm</button>
 								</div>
 							</form>
 							<thead>
@@ -98,16 +99,16 @@
 										<td>${v.manufacturer }</td>
 										<td>${v.diseasePrevented }</td>
 										<td>${v.duration }</td>
-										<td>0926737168</td>
+										<td>${v.receiptDate }</td>
 										<td class="table-td-center">
 											<form action="${contextPath }/vaccines/delete/${v.vaccineID}" method="post">
-												<button class="btn btn-primary btn-sm trash" type="button"
+												<button class="btn btn-primary btn-sm trash" type="submit"
 													title="Xóa" onclick="myFunction(this)">
 													<i class="fas fa-trash-alt"></i>
 												</button>
 											</form>
 											<form action="${contextPath }/vaccines/edit/${v.vaccineID}" method="post">
-												<button class="btn btn-primary btn-sm edit" type="button"
+												<button class="btn btn-primary btn-sm edit" type="submit"
 													title="Sửa" id="show-emp" data-toggle="modal"
 													data-target="#ModalUP">
 													<i class="fas fa-edit"></i>

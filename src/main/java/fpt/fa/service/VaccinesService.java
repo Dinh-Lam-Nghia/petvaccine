@@ -11,6 +11,7 @@ public interface VaccinesService {
 	void create(Vaccines vaccines);
 	void delete(int id);
 	void update(Vaccines vaccines);
+	Vaccines findById(int vaccineID);
 	List<Vaccines> getListVaccines();
 	Page<Vaccines> getListVaccinesWithPaging(Pageable pageable);
 	Page<Vaccines> findVaccinesByName(String name, Pageable pageable);

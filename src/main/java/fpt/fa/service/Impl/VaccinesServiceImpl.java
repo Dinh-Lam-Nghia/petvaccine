@@ -31,6 +31,11 @@ public class VaccinesServiceImpl implements VaccinesService{
 	}
 	
 	@Override
+	public Vaccines findById(int vaccineID) {
+		return repository.findById(vaccineID).orElse(null);
+	}
+	
+	@Override
 	public List<Vaccines> getListVaccines() {
 		return repository.findAll();
 	}

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -30,69 +31,35 @@
 				<div class="tile">
 					<h3 class="tile-title">Thêm mới thông tin Vaccine</h3>
 					<div class="tile-body">
-						<!-- 
-						<div class="row element-button">
-							<div class="col-sm-2">
-								<a class="btn btn-add btn-sm" data-toggle="modal"
-									data-target="#exampleModalCenter"><i
-									class="fas fa-folder-plus"></i> Thêm nhà cung cấp</a>
-							</div>
-							<div class="col-sm-2">
-								<a class="btn btn-add btn-sm" data-toggle="modal"
-									data-target="#adddanhmuc"><i class="fas fa-folder-plus"></i>
-									Thêm danh mục</a>
-							</div>
-							<div class="col-sm-2">
-								<a class="btn btn-add btn-sm" data-toggle="modal"
-									data-target="#addtinhtrang"><i class="fas fa-folder-plus"></i>
-									Thêm tình trạng</a>
-							</div>
-						</div>
-					 -->
-						<form class="row">
+						<form:form action="${pageContext.request.contextPath}/vaccines/create" class="row" method="POST" modelAttribute="vaccines">
 							<div class="form-group col-md-3">
-								<label class="control-label">Tên Vaccine</label> <input
-									class="form-control" type="text">
+								<label class="control-label">Tên Vaccine</label> 
+								<form:input class="form-control" path="vaccineName"/>
 							</div>
 							<div class="form-group col-md-3">
-								<label class="control-label">Nhà sản xuất</label> <input
-									class="form-control" type="number">
+								<label class="control-label">Nhà sản xuất</label> 
+								<form:input class="form-control" path="manufacturer"/>
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Ngừa bệnh</label> <input
-									class="form-control" type="email">
+								<label class="control-label">Ngừa bệnh</label> 
+								<form:input class="form-control" path="diseasePrevented"/>
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Hạn sử dụng</label> <input
-									class="form-control" type="date">
+								<label class="control-label">Hạn sử dụng</label> 
+								<form:input class="form-control" path="duration" type="date"/>
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Ngày đăng ký</label> <input
-									class="form-control" type="date">
+								<label class="control-label">Ngày đăng ký</label> 
+								<form:input class="form-control" path="receiptDate" type="date"/>
 							</div>
-							<!-- 
-							<div class="form-group col-md-3 ">
-								<label for="exampleSelect1" class="control-label">Nhà
-									cung cấp</label> <select class="form-control" id="exampleSelect1">
-									<option>-- Chọn nhà cung cấp --</option>
-									<option>Phong vũ</option>
-									<option>Thế giới di động</option>
-									<option>FPT</option>
-									<option>Võ Trường</option>
-								</select>
-							</div>
-							 
-							<div class="form-group col-md-12">
-								<label class="control-label">Mô tả sản phẩm</label>
-								<textarea class="form-control" name="mota" id="mota"></textarea>
-								<script>
-									CKEDITOR.replace('mota');
-								</script>
-							</div>-->
+							<button class="btn btn-save" type="submit">Thêm mới</button>
+							<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+						</form:form>
 					</div>
-					<button class="btn btn-save" type="button">Lưu lại</button>
-					<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+					
 				</div>
+			</div>
+		</div>
 	</main>
 
 </body>

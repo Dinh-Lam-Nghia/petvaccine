@@ -1,12 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+<!--  -->
+<jsp:include page="/WEB-INF/views/head.jsp" />
+<!--  -->
+
 </head>
-<body>
+<body onload="time()" class="app sidebar-mini rtl">
+	<!--  -->
+	<jsp:include page="/WEB-INF/views/menu.jsp"></jsp:include>
+	<!--  -->
+
+	<main class="app-content">
+		<div class="app-title">
+			<ul class="app-breadcrumb breadcrumb">
+				<li class="breadcrumb-item"><a
+					href="${contextPath }/petsowners/list">Danh sách Vaccines</a></li>
+				<li class="breadcrumb-item">Chỉnh sửa Vaccine</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tile">
+					<h3 class="tile-title">Chỉnh sửa thông tin Vaccine</h3>
+					<div class="tile-body">
+						<form:form action="${pageContext.request.contextPath}/vaccines/edit" class="row" method="POST" modelAttribute="vaccines">
+							<form:input class="form-control" path="vaccineID" type="hidden"/>
+							<div class="form-group col-md-3">
+								<label class="control-label">Tên Vaccine</label> 
+								<form:input class="form-control" path="vaccineName"/>
+							</div>
+							<div class="form-group col-md-3">
+								<label class="control-label">Nhà sản xuất</label> 
+								<form:input class="form-control" path="manufacturer"/>
+							</div>
+							<div class="form-group  col-md-3">
+								<label class="control-label">Ngừa bệnh</label> 
+								<form:input class="form-control" path="diseasePrevented"/>
+							</div>
+							<div class="form-group  col-md-3">
+								<label class="control-label">Hạn sử dụng</label> 
+								<form:input class="form-control" path="duration" type="date"/>
+							</div>
+							<div class="form-group  col-md-3">
+								<label class="control-label">Ngày đăng ký</label> 
+								<form:input class="form-control" path="receiptDate" type="date"/>
+							</div>
+							<button class="btn btn-save" type="submit">Lưu lại</button>
+							<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+						</form:form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</main>
 
 </body>
 </html>
