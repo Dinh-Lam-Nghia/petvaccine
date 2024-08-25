@@ -83,19 +83,19 @@ public class Vaccines {
 	public Date getDuration() {
 		return duration;
 	}
-	
+
 	public void setDuration(Date duration) {
 		this.duration = duration;
 	}
 
-	public Date ReceiptDate() {
+	public Date getReceiptDate() {
 		return receiptDate;
 	}
-	
+
 	public void setReceiptDate(Date receiptDate) {
 		this.receiptDate = receiptDate;
 	}
-	
+
 	public List<VaccinationRecords> getRecordID() {
 		return recordID;
 	}

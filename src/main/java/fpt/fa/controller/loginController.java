@@ -70,12 +70,17 @@ public class loginController {
 		return "login_logout/forgot";
 	}
 	@GetMapping("/register")
-	public String register(Model model) {
+	public String register(HttpSession session, Model model) {
+		if(session.getAttribute("username")!=null) {
+			return "index";
+		}
 		model.addAttribute("title", "Đăng ký");
 		return "login_logout/register";
 	}
 	@PostMapping("/register")
 	public String register( @RequestParam("username") String username,
+							@RequestParam("fullname") String fullname,
+							@RequestParam("phone") String phone,
 						    @RequestParam("password") String password,
 						    @RequestParam("verify_password") String verify_password,
 						    HttpSession session,
@@ -93,11 +98,12 @@ public class loginController {
 			return "login_logout/register";
 		}
 		Position postion = new Position(1,"admin",0);
-		Account account = new Account( username, password, "Admin", "0123456789", 0,postion);
+		Account account = new Account( username, password, fullname, phone, 0,postion);
 		accountService.create(account);
 		model.addAttribute("title", "Đăng ký");
+		redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công");
 		System.out.print("da dang ky");
-		return "login_logout/register";
+		return "redirect:/login_logout/register";
 		}
 	
 	@GetMapping("/logout")

@@ -23,14 +23,14 @@
                     </span>
                     <!--=====FORM INPUT TÀI KHOẢN VÀ PASSWORD======-->
                     <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" placeholder="Tài khoản quản trị" name="username" id="username">
+                        <input class="input100" type="text" placeholder="Tên tài khoản" name="username" id="username" required>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class='bx bx-user'></i>
                         </span>
                     </div>
                     <div class="wrap-input100 validate-input">
-                        <input autocomplete="off" class="input100" type="password" placeholder="Mật khẩu" name="password" id="password-field">
+                        <input autocomplete="off" class="input100" type="password" placeholder="Mật khẩu" name="password" id="password-field" required>
                         <span toggle="#password-field" class="bx fa-fw bx-hide field-icon click-eye"></span>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -67,25 +67,25 @@
     <script src="${contextPath}/vendor/bootstrap/js/popper.js"></script>
     <script src="$contextPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="${contextPath}/vendor/select2/select2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         //show - hide mật khẩu
-        function myFunction() {
-            var x = document.getElementById("myInput");
-            if (x.type === "password") {
-                x.type = "text"
-            } else {
-                x.type = "password";
-            }
-        }
-        $(".click-eye").click(function () {
-            $(this).toggleClass("bx-show bx-hide");
-            var input = $($(this).attr("toggle"));
-            if (input.attr("type") == "password") {
-                input.attr("type", "text");
-            } else {
-                input.attr("type", "password");
-            }
-        });
+        $(document).ready(function() {
+	        $(".click-eye").click(function () {
+	            // Lấy selector từ thuộc tính toggle
+	            var inputSelector = $(this).attr("toggle");
+	            var input = $(inputSelector);
+	
+	            // Thay đổi kiểu của ô nhập liệu và lớp của biểu tượng mắt
+	            if (input.attr("type") === "password") {
+	                input.attr("type", "text");
+	                $(this).removeClass("bx-hide").addClass("bx-show");
+	            } else {
+	                input.attr("type", "password");
+	                $(this).removeClass("bx-show").addClass("bx-hide");
+	            }
+	        });
+    	});
     </script>
 </body>
 

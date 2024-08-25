@@ -22,12 +22,14 @@ public class AccountServiceImpl implements AccountService {
 		repository.deleteById(id);
 	}
 	
+	@Override
 	public void update(Account account) {
 		repository.save(account);
 	}
 	
+	@Override
 	public int Login(String username, String password) {
-		Account account = repository.findByuserName(username);
+		Account account = repository.findByUserName(username);
 			if(account == null) {
 				return -1; //k tontai
 			}
@@ -43,11 +45,13 @@ public class AccountServiceImpl implements AccountService {
 			}
 			
 	}
+	@Override
 	public Account checkAccount(String username) {
-		Account account = repository.findByuserName(username);
+		Account account = repository.findByUserName(username);
 		return account;
 	}
 	
+	@Override
 	public boolean checkUserName(String username) {
 		boolean isUsername = repository.existsByuserName(username);
 		return isUsername;
