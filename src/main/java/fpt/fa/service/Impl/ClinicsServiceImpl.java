@@ -1,7 +1,12 @@
 package fpt.fa.service.Impl;
 
+import java.io.InputStream;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,35 +56,29 @@ public class ClinicsServiceImpl implements ClinicsService {
         return clinicsRepository.findByClinicNameContainingOrAddressContainingOrPhoneNumberContainingAndDelete(
             keyword, keyword, keyword, 1);
     }
-    //có lỗi 
-//    @Override
-//    public void importClinicsFromExcel(MultipartFile file) {
-//        try (InputStream inputStream = file.getInputStream();
-//             Workbook workbook = WorkbookFactory.create(inputStream)) {
-//
-//            Sheet sheet = workbook.getSheetAt(0); // Giả sử dữ liệu nằm ở sheet đầu tiên
-//
-//            for (Row row : sheet) {
-//                if (row.getRowNum() == 0) {
-//                    continue; // Bỏ qua hàng tiêu đề
-//                }
-//
-//                Clinics clinic = new Clinics();
-//                clinic.setClinicName(row.getCell(0).getStringCellValue());
-//                clinic.setAddress(row.getCell(1).getStringCellValue());
-//                clinic.setPhoneNumber(row.getCell(2).getStringCellValue());
-//
-//                clinicsRepository.save(clinic); // Lưu phòng khám vào database
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            // Bạn có thể thêm xử lý ngoại lệ tại đây
-//        }
-//    }
+    
+    @Override
+    public void importClinicsFromExcel(MultipartFile file) {
+        try (InputStream inputStream = file.getInputStream();
+             Workbook workbook = WorkbookFactory.create(inputStream)) {
 
-	@Override
-	public void importClinicsFromExcel(MultipartFile file) {
-		// TODO Auto-generated method stub
-		
-	}
+            Sheet sheet = workbook.getSheetAt(0); // Giả sử dữ liệu nằm ở sheet đầu tiên
+
+            for (Row row : sheet) {
+                if (row.getRowNum() == 0) {
+                    continue; // Bỏ qua hàng tiêu đề
+                }
+
+                Clinics clinic = new Clinics();
+                clinic.setClinicName(row.getCell(0).getStringCellValue());
+                clinic.setAddress(row.getCell(1).getStringCellValue());
+                clinic.setPhoneNumber(row.getCell(2).getStringCellValue());
+
+                clinicsRepository.save(clinic); // Lưu phòng khám vào database
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Bạn có thể thêm xử lý ngoại lệ tại đây
+        }
+    }
 }

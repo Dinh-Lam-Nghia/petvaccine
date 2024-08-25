@@ -39,7 +39,7 @@
 		<li><a class="app-menu__item ${menu_index }"
 			href="${contextPath }/"><i
 				class='app-menu__icon bx bx-tachometer'></i><span
-				class="app-menu__label">Bảng điều khiển</span></a></li>
+				class="app-menu__label">Bảng thống kê</span></a></li>
 
 		<li><a class="app-menu__item ${menu_clinics }"
 			href="${contextPath }/clinics/list"><i class='bx bx-home-heart'
