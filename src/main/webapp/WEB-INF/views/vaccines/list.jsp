@@ -75,7 +75,6 @@
 								<div class="form-group col-md-3" style="float: right;">
 									<label class="control-label">Tim kiếm </label> 
 									<input class="form-control" type="text" name="nameVaccine">
-									<button type="submit">Tìm</button>
 								</div>
 							</form>
 							<thead>
@@ -103,7 +102,7 @@
 										<td class="table-td-center">
 											<form action="${contextPath }/vaccines/delete/${v.vaccineID}" method="post">
 												<button class="btn btn-primary btn-sm trash" type="submit"
-													title="Xóa" onclick="myFunction(this)">
+													title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng khám này?');">
 													<i class="fas fa-trash-alt"></i>
 												</button>
 											</form>

@@ -15,7 +15,7 @@ public class AuthFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // Khởi tạo Filter nếu cần
+        
     }
 
     @Override
@@ -28,12 +28,14 @@ public class AuthFilter implements Filter {
 
         String loginURI = httpRequest.getContextPath() + "/login";
         String registerURI = httpRequest.getContextPath() + "/register";
+        String forgotURI = httpRequest.getContextPath() + "/forgot";
 
         boolean loggedIn = session != null && session.getAttribute("username") != null;
         boolean loginRequest = httpRequest.getRequestURI().equals(loginURI);
         boolean registerRequest = httpRequest.getRequestURI().equals(registerURI);
+        boolean forgotRequest = httpRequest.getRequestURI().equals(forgotURI);
 
-        if (loggedIn || loginRequest || registerRequest) {
+        if (loggedIn || loginRequest || registerRequest || forgotRequest) {
             chain.doFilter(request, response); // Người dùng đã đăng nhập hoặc đang yêu cầu trang login/register, tiếp tục xử lý
         } else {
             httpResponse.sendRedirect(loginURI); // Chưa đăng nhập, chuyển hướng đến trang login
@@ -42,6 +44,6 @@ public class AuthFilter implements Filter {
 
     @Override
     public void destroy() {
-        // Hủy bỏ Filter nếu cần
+        
     }
 }

@@ -42,14 +42,17 @@ public class loginController {
             			@RequestParam("password") String password,
             			HttpSession session,
                         HttpServletResponse response,
-                        RedirectAttributes redirectAttributes) {
+                        RedirectAttributes redirectAttributes,
+                        Model model) {
 		int isAuthenticated  = accountService.Login(username,password);
 		if(isAuthenticated == -1) {
 			System.out.print("Tài khoản không tồn tại");
+			model.addAttribute("message", "Tài khoản không tồn tại");
 			return "login_logout/login";
 		}
 		if(isAuthenticated == 0) {
 			System.out.print("Mât khẩu không chính xác");
+			model.addAttribute("message", "Mât khẩu không chính xác");
 			return "login_logout/login";
 		}
 		
@@ -61,11 +64,33 @@ public class loginController {
 		cookie.setPath("/");
 		response.addCookie(cookie);
 		System.out.print("Đăng nhập thành công");
-		return "index";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/forgot")
-	public String forgot(Model model) {
+	public String forgot(HttpSession session,
+						 Model model) {
+		if(session.getAttribute("username")!=null) {
+			return "index";
+		}
+		model.addAttribute("title", "Khôi phục mật khẩu");
+		return "login_logout/forgot";
+	}
+	
+	@PostMapping("/forgot")
+	public String forgot(@RequestParam("username") String username,
+						 @RequestParam("phone") String phone,
+						 Model model) {
+		if(!accountService.checkUserName(username)) {
+			model.addAttribute("message", "Tài khoản không tồn tại");
+			return "login_logout/forgot";
+		}
+		String newpass = accountService.forgotAccount(username, phone);
+		if(newpass.equals("FALSE")) {
+			model.addAttribute("message", "Số điện thoại không đúng");
+			return "login_logout/forgot";
+		}
+		model.addAttribute("newpass", "Mật khẩu mới : " + newpass);
 		model.addAttribute("title", "Khôi phục mật khẩu");
 		return "login_logout/forgot";
 	}
@@ -90,20 +115,23 @@ public class loginController {
 		boolean checkUsername = accountService.checkUserName(username);
 		if(checkUsername == true ) {
 			System.out.print("Tài khoản đã tồn tại");
+			model.addAttribute("message", "Tài khoản đã tồn tại");
 			return "login_logout/register";
 		}
 		if(!password.equals(verify_password)) {
 			System.out.print(password+verify_password);
 			System.out.print("Mật khẩu không khớp");
+			model.addAttribute("message", "Mật khẩu không khớp");
 			return "login_logout/register";
 		}
 		Position postion = new Position(1,"admin",0);
-		Account account = new Account( username, password, fullname, phone, 0,postion);
+		Account account = new Account( username, password, fullname, phone, 1,postion);
 		accountService.create(account);
+		model.addAttribute("message", "Đăng ký thành công");
 		model.addAttribute("title", "Đăng ký");
-		redirectAttributes.addFlashAttribute("successMessage", "Đăng ký thành công");
+		redirectAttributes.addFlashAttribute("message", "Đăng ký thành công");
 		System.out.print("da dang ky");
-		return "redirect:/login_logout/register";
+		return "login_logout/register";
 		}
 	
 	@GetMapping("/logout")
