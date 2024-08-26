@@ -86,43 +86,19 @@
 					<!-- col-12 -->
 					<div class="col-md-12">
 						<div class="tile">
-							<h3 class="tile-title">Tình trạng đơn hàng</h3>
+							<h3 class="tile-title">Tình trạng Vaccine</h3>
 							<div>
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th>ID đơn hàng</th>
-											<th>Tên khách hàng</th>
-											<th>Tổng tiền</th>
-											<th>Trạng thái</th>
+											<th>Tên vaccine</th>
+											<th>NSX</th>
+											<th>Ngừa bệnh</th>
+											<th>Tình trạng</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>AL3947</td>
-											<td>Phạm Thị Ngọc</td>
-											<td>19.770.000 đ</td>
-											<td><span class="badge bg-info">Chờ xử lý</span></td>
-										</tr>
-										<tr>
-											<td>ER3835</td>
-											<td>Nguyễn Thị Mỹ Yến</td>
-											<td>16.770.000 đ</td>
-											<td><span class="badge bg-warning">Đang vận
-													chuyển</span></td>
-										</tr>
-										<tr>
-											<td>MD0837</td>
-											<td>Triệu Thanh Phú</td>
-											<td>9.400.000 đ</td>
-											<td><span class="badge bg-success">Đã hoàn thành</span></td>
-										</tr>
-										<tr>
-											<td>MT9835</td>
-											<td>Đặng Hoàng Phúc</td>
-											<td>40.650.000 đ</td>
-											<td><span class="badge bg-danger">Đã hủy </span></td>
-										</tr>
+										
 									</tbody>
 								</table>
 							</div>
