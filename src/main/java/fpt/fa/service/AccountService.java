@@ -9,6 +9,7 @@ public interface AccountService {
 	int Login(String username,String password);
 	boolean checkUserName(String username);
 	Account checkAccount(String username);
+	String forgotAccount(String username,String phone);
 
 	
 }

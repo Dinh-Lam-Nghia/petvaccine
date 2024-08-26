@@ -17,15 +17,24 @@
                     <img src="${contextPath}/resources/images/team.jpg" alt="IMG">
                 </div>
                 <!--=====TIÊU ĐỀ======-->
-                <c:if test="${not empty successMessage}">
-			        <div style="color: green;">
-			            ${successMessage}
-			        </div>
-			    </c:if>
                 <form class="login100-form validate-form" action="<%= request.getContextPath() %>/register" method="post">
                     <span class="login100-form-title">
                         <b>ĐĂNG KÝ TÀI KHOẢN POS</b>
                     </span>
+                    <c:if test="${message != null}">
+				        <div id="notification" style="background-color: #4CAF50; 
+						            padding: 5px;
+						            border-radius: 5px;
+						            color: white;
+									margin-bottom: 5px;
+						            font-family: Arial, sans-serif;
+						            font-size: 16px;
+						            max-width: 300px;
+						            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+						            z-index: 1000;">
+				            ${message}
+				        </div>
+				    </c:if>
                     <!--=====FORM INPUT TÀI KHOẢN VÀ PASSWORD======-->
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" placeholder="Tên tài khoản" name="username" id="username" required>
@@ -112,6 +121,22 @@
 	            }
 	        });
     	});
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var notification = document.getElementById('notification');
+            if (notification) {
+                setTimeout(function() {
+                    notification.style.opacity = '0';
+                }, 2000);
+                setTimeout(function() {
+                    if (notification) {
+                        notification.remove();
+                    }
+                }, 1000);
+            }
+        });
     </script>
 </body>
 
