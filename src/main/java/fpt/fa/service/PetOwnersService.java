@@ -11,4 +11,6 @@ public interface PetOwnersService {
 	PetOwners findById(int id);
 	void updateById(PetOwners petOwners);
 	List<PetOwners> search(String search);
+	long countDeletedCustomers();
+	List<PetOwners> getNewCustomersNotDeleted();
 }
