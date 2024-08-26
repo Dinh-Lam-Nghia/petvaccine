@@ -10,4 +10,5 @@ public interface PetsService {
 	void deleteById(int id);
 	Pets findById(int id);
 	List<Pets> search(String search);
+	long countDeletedPets();  
 }

@@ -12,7 +12,8 @@ public interface PetOwnersRepository extends JpaRepository<PetOwners, Integer> {
 	List<PetOwners> findByDelete(int delete);
 	PetOwners findByOwnerName(String ownerName);
 	List<PetOwners> findAllByOwnerNameContainingOrPhoneNumberContainingOrEmailContainingOrAddressContainingAndDelete(String ownerName, String phoneNumber, String email, String address, int delete);
-
+	long countByDelete(int delete);
+	List<PetOwners> findTop10ByDeleteOrderByDateOfRegistrationDesc(int delete);
 
 //	@Modifying
 //	@Query("UPDATE PetOwners SET address = :address, dateOfRegistration = :dateOfRegistration, isDelete = :delete, email = :email, ownerName = :ownerName, phoneNumber = :phoneNumber WHERE ownerID = :ownerID")
