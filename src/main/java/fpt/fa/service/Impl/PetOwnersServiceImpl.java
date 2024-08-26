@@ -14,6 +14,15 @@ public class PetOwnersServiceImpl implements PetOwnersService {
 	@Autowired
 	private PetOwnersRepository petOwnersRepository;
 
+	 @Override
+	    public List<PetOwners> getNewCustomersNotDeleted() {
+	        // Lấy danh sách 10 khách hàng chưa bị xóa
+	        return petOwnersRepository.findTop10ByDeleteOrderByDateOfRegistrationDesc(1);
+	    }
+	@Override
+    public long countDeletedCustomers() {
+        return petOwnersRepository.countByDelete(1);
+    }
 	@Override
 	public void create(PetOwners petOwners) {
 		petOwnersRepository.save(petOwners);

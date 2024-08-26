@@ -18,6 +18,7 @@ public class PetsServiceImpl implements PetsService {
 	@Autowired
 	private PetOwnersRepository petOwnersRepository;
 
+
 	@Override
 	public void create(Pets pets) {
 		petsRepository.save(pets);
@@ -47,4 +48,8 @@ public class PetsServiceImpl implements PetsService {
 		PetOwners owner = petOwnersRepository.findByOwnerName(search);
 		return petsRepository.findByOwnerIDOrPetNameOrSpeciesOrBreedOrDateOfBirthOrGenderOrMicrochipIDAndDelete(owner, search, search, search, null, search, search, 1);
 	}
+	@Override
+    public long countDeletedPets() {
+        return petsRepository.countByDelete(1);
+    }
 }

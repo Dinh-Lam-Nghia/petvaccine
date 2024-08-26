@@ -14,4 +14,6 @@ public interface PetsRepository extends JpaRepository<Pets, Integer> {
 	List<Pets> findByOwnerIDOrPetNameOrSpeciesOrBreedOrDateOfBirthOrGenderOrMicrochipIDAndDelete(PetOwners ownerID,
 			String petName, String species, String breed, Date dateOfBirth, String gender, String microchipID,
 			int delete);
+	long countByDelete(int deleteValue);
+
 }

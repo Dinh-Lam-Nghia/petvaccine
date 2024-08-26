@@ -18,8 +18,8 @@
 			<div class="col-md-12">
 				<div class="app-title">
 					<ul class="app-breadcrumb breadcrumb">
-						<li class="breadcrumb-item"><a href="#"><b>Bảng điều
-									khiển</b></a></li>
+						<li class="breadcrumb-item"><a href="#"><b>Bảng thống
+									kê</b></a></li>
 					</ul>
 					<div id="clock"></div>
 				</div>
@@ -32,52 +32,54 @@
 					<!-- col-6 -->
 					<div class="col-md-6">
 						<div class="widget-small primary coloured-icon">
-							<i class='icon bx bxs-user-account fa-3x'></i>
+							<i class='fas fa-users fa-3x'></i>
 							<div class="info">
-								<h4>Tổng khách hàng</h4>
+								<h4>Khách hàng</h4>
 								<p>
-									<b>56 khách hàng</b>
+									<b>${deletedCustomers} khách hàng</b>
+									<!-- Hiển thị số lượng khách hàng -->
 								</p>
 								<p class="info-tong">Tổng số khách hàng được quản lý.</p>
 							</div>
 						</div>
 					</div>
+
 					<!-- col-6 -->
 					<div class="col-md-6">
 						<div class="widget-small info coloured-icon">
-							<i class='icon bx bxs-data fa-3x'></i>
+							<i class='fas fa-syringe fa-3x'></i>
 							<div class="info">
-								<h4>Tổng sản phẩm</h4>
+								<h4>Vaccine</h4>
 								<p>
-									<b>1850 sản phẩm</b>
+									<b>1850 vaccine</b>
 								</p>
-								<p class="info-tong">Tổng số sản phẩm được quản lý.</p>
+								<p class="info-tong">Tổng số vaccine được quản lý.</p>
 							</div>
 						</div>
 					</div>
 					<!-- col-6 -->
 					<div class="col-md-6">
 						<div class="widget-small warning coloured-icon">
-							<i class='icon bx bxs-shopping-bags fa-3x'></i>
+							<i class='fas fa-paw fa-3x'></i>
 							<div class="info">
-								<h4>Tổng đơn hàng</h4>
+								<h4>Thú cưng</h4>
 								<p>
-									<b>247 đơn hàng</b>
+									<b>${deletedPets} thú cưng</b>
 								</p>
-								<p class="info-tong">Tổng số hóa đơn bán hàng trong tháng.</p>
+								<p class="info-tong">Tổng số thú cưng đã tiêm trong tháng.</p>
 							</div>
 						</div>
 					</div>
 					<!-- col-6 -->
 					<div class="col-md-6">
 						<div class="widget-small danger coloured-icon">
-							<i class='icon bx bxs-error-alt fa-3x'></i>
+							<i class='fas fa-clock fa-3x'></i>
 							<div class="info">
-								<h4>Sắp hết hàng</h4>
+								<h4>Cuộc hẹn</h4>
 								<p>
-									<b>4 sản phẩm</b>
+									<b>4 cuộc hẹn</b>
 								</p>
-								<p class="info-tong">Số sản phẩm cảnh báo hết cần nhập thêm.</p>
+								<p class="info-tong">Tổng số cuộc hẹn trong tháng.</p>
 							</div>
 						</div>
 					</div>
@@ -144,13 +146,23 @@
 										</tr>
 									</thead>
 									<tbody>
-										
+										<!-- Sử dụng JSTL để hiển thị danh sách khách hàng chưa bị xóa -->
+										<c:forEach var="customer" items="${newCustomers}">
+											<tr>
+												<td>${customer.ownerName}</td>
+												<td>${customer.phoneNumber}</td>
+												<td>${customer.email}</td>
+												<td>${customer.address}</td>
+												<td>${customer.dateOfRegistration}</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
-
 						</div>
 					</div>
+
+
 					<!-- / col-12 -->
 				</div>
 			</div>
@@ -180,10 +192,10 @@
 			<!--END right-->
 		</div>
 
-<!--  -->
-<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
-<!--  -->	
-		
+		<!--  -->
+		<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+		<!--  -->
+
 	</main>
 	<script src="${contextPath}/resources/doc/js/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
