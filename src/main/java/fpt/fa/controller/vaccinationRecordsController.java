@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+
 @Controller
 @RequestMapping("/vaccinationrecords")
 public class vaccinationRecordsController {
@@ -16,6 +17,14 @@ public class vaccinationRecordsController {
         model.addAttribute("title", "PetVaccines");
 		return "vaccinationrecords/list";
 	}
+	
+	@GetMapping("/create")
+	public String create_vaccinationrecords(Model model) {
+		model.addAttribute("menu_appointments", "active");
+        model.addAttribute("title", "PetVaccines");
+		return "vaccinationrecords/create";
+	}
+	
 	
 
 }

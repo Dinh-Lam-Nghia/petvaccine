@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VaccinesRepository extends JpaRepository<Vaccines, Integer> {
 	Page<Vaccines> findAllVaccinesByVaccineNameContaining(String name, Pageable pageable);
+	long countByDelete(int delete);
+
 }

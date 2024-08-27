@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
 <jsp:include page="/WEB-INF/views/head.jsp" />
+<jsp:useBean id="now" class="java.util.Date" scope="page" />
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
@@ -51,7 +52,7 @@
 							<div class="info">
 								<h4>Vaccine</h4>
 								<p>
-									<b>1850 vaccine</b>
+									<b>${totalVaccines} vaccine</b>
 								</p>
 								<p class="info-tong">Tổng số vaccine được quản lý.</p>
 							</div>
@@ -77,7 +78,7 @@
 							<div class="info">
 								<h4>Cuộc hẹn</h4>
 								<p>
-									<b>4 cuộc hẹn</b>
+									<b>null cuộc hẹn</b>
 								</p>
 								<p class="info-tong">Tổng số cuộc hẹn trong tháng.</p>
 							</div>
@@ -86,49 +87,40 @@
 					<!-- col-12 -->
 					<div class="col-md-12">
 						<div class="tile">
-							<h3 class="tile-title">Tình trạng đơn hàng</h3>
+							<h3 class="tile-title">Tình trạng Vaccine</h3>
 							<div>
 								<table class="table table-bordered">
 									<thead>
 										<tr>
-											<th>ID đơn hàng</th>
-											<th>Tên khách hàng</th>
-											<th>Tổng tiền</th>
-											<th>Trạng thái</th>
+											<th>Tên vaccine</th>
+											<th>NSX</th>
+											<th>Ngừa bệnh</th>
+											<th>Tình trạng</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>AL3947</td>
-											<td>Phạm Thị Ngọc</td>
-											<td>19.770.000 đ</td>
-											<td><span class="badge bg-info">Chờ xử lý</span></td>
-										</tr>
-										<tr>
-											<td>ER3835</td>
-											<td>Nguyễn Thị Mỹ Yến</td>
-											<td>16.770.000 đ</td>
-											<td><span class="badge bg-warning">Đang vận
-													chuyển</span></td>
-										</tr>
-										<tr>
-											<td>MD0837</td>
-											<td>Triệu Thanh Phú</td>
-											<td>9.400.000 đ</td>
-											<td><span class="badge bg-success">Đã hoàn thành</span></td>
-										</tr>
-										<tr>
-											<td>MT9835</td>
-											<td>Đặng Hoàng Phúc</td>
-											<td>40.650.000 đ</td>
-											<td><span class="badge bg-danger">Đã hủy </span></td>
-										</tr>
+										<c:forEach items="${vaccines.getContent()}" var="v">
+											<tr>
+												<td>${v.vaccineName}</td>
+												<td>${v.manufacturer}</td>
+												<td>${v.diseasePrevented}</td>
+												<td><c:choose>
+														<c:when
+															test="${now.time >= v.receiptDate.time && now.time <= v.duration.time}">
+															<span class="text-success">Còn hạn</span>
+														</c:when>
+														<c:otherwise>
+															<span class="text-danger">Hết hạn</span>
+														</c:otherwise>
+													</c:choose></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
-							<!-- / div trống-->
 						</div>
 					</div>
+
 					<!-- / col-12 -->
 					<!-- col-12 -->
 					<div class="col-md-12">
@@ -172,7 +164,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="tile">
-							<h3 class="tile-title">Dữ liệu 6 tháng đầu vào</h3>
+							<h3 class="tile-title">Dữ liệu thống kê cuộc hẹn </h3>
 							<div class="embed-responsive embed-responsive-16by9">
 								<canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
 							</div>
@@ -180,7 +172,7 @@
 					</div>
 					<div class="col-md-12">
 						<div class="tile">
-							<h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
+							<h3 class="tile-title">Thống kê hồ sơ tiêm chủng</h3>
 							<div class="embed-responsive embed-responsive-16by9">
 								<canvas class="embed-responsive-item" id="barChartDemo"></canvas>
 							</div>

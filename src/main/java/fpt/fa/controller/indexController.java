@@ -1,12 +1,17 @@
 package fpt.fa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import fpt.fa.service.PetOwnersService;
 import fpt.fa.service.PetsService;
+import fpt.fa.service.VaccinesService;
+import fpt.fa.entity.Vaccines;
 
 @Controller
 @RequestMapping("/")
@@ -18,9 +23,12 @@ public class indexController {
     @Autowired
     private PetsService petsService;
 
+    @Autowired
+    private VaccinesService vaccinesService;
+
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("title", "Pet Vaccine");
+        model.addAttribute("title", "Trang chính");
         model.addAttribute("menu_index", "active");
 
         long deletedCustomers = petOwnersService.countDeletedCustomers();
@@ -28,9 +36,17 @@ public class indexController {
 
         model.addAttribute("newCustomers", petOwnersService.getNewCustomersNotDeleted());
 
-        // Get the count of deleted pets and add to model
         long deletedPets = petsService.countDeletedPets();
         model.addAttribute("deletedPets", deletedPets);
+
+        Page<Vaccines> vaccinesPage = vaccinesService.getListVaccinesWithPaging(PageRequest.of(0, 5)); // Ví dụ lấy 5 vaccine đầu tiên
+        model.addAttribute("vaccines", vaccinesPage);
+        
+        long totalVaccines = vaccinesService.countAllVaccines();
+        model.addAttribute("totalVaccines", totalVaccines);
+
+        long deletedVaccines = vaccinesService.countDeletedVaccines();
+        model.addAttribute("deletedVaccines", deletedVaccines);
 
         return "index";
     }
