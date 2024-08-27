@@ -15,4 +15,6 @@ public interface VaccinesService {
 	List<Vaccines> getListVaccines();
 	Page<Vaccines> getListVaccinesWithPaging(Pageable pageable);
 	Page<Vaccines> findVaccinesByName(String name, Pageable pageable);
+	long countAllVaccines();
+	long countDeletedVaccines();
 }

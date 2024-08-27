@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity 
 public class Vaccines {
@@ -114,6 +113,10 @@ public class Vaccines {
 		this.receiptDate = receiptDate;
 		this.delete = delete;
 	}
+	public boolean isExpired() {
+        Date currentDate = new Date(System.currentTimeMillis());
+        return this.duration.before(currentDate);
+    }
 	
 	
 }
