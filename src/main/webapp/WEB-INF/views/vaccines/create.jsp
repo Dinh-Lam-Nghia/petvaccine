@@ -52,13 +52,8 @@
 								<label class="control-label">Ngày đăng ký</label> 
 								<form:input class="form-control" path="receiptDate" type="date"/>
 							</div>
-							<div class="form-group col-md-12">
-								<button class="btn btn-save" type="submit">Lưu lại</button>
-
-								<button class="btn btn-cancel" type="button"
-									onclick="window.location.href='${contextPath}/vaccines/list'">Hủy
-									bỏ</button>
-							</div>
+							<button class="btn btn-save" type="submit">Thêm mới</button>
+							<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
 						</form:form>
 					</div>
 					
