@@ -33,7 +33,7 @@ public class petsController {
 			model.addAttribute("pets", petsService.findByDelete(1));
 		}
 		model.addAttribute("menu_pets", "active");
-        model.addAttribute("title", "Quản lý thú cưng");
+        model.addAttribute("title", "PetVaccines");
 		return "pets/list";
 	}
 	
@@ -42,7 +42,7 @@ public class petsController {
 		model.addAttribute("menu_pets", "active");	
 		model.addAttribute("pets", new Pets());
 		model.addAttribute("petowners", petOwnersServicel.findByDelete());
-        model.addAttribute("title", "Thêm thú cưng mới");
+        model.addAttribute("title", "PetVaccines");
 		return "pets/create";
 	}
 	
@@ -62,7 +62,7 @@ public class petsController {
 		model.addAttribute("pets", pet);
 		model.addAttribute("petowners", petOwnersServicel.findByDelete());
 		model.addAttribute("menu_pets", "active"); 
-        model.addAttribute("title", "Chỉnh sửa thú cưng");
+        model.addAttribute("title", "PetVaccines");
 		return "pets/edit";
 	}
 

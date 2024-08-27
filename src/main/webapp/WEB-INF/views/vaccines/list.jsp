@@ -102,7 +102,7 @@
 										<td class="table-td-center">
 											<form action="${contextPath }/vaccines/delete/${v.vaccineID}" method="post">
 												<button class="btn btn-primary btn-sm trash" type="submit"
-													title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa Vaccine này?');">
+													title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa phòng khám này?');">
 													<i class="fas fa-trash-alt"></i>
 												</button>
 											</form>
