@@ -71,7 +71,7 @@
 						</div>
 						<table class="table table-hover table-bordered js-copytextarea"
 							cellpadding="0" cellspacing="0" border="0" id="sampleTable">
-							<form method="get" action="${contextPath}/pets/list" class="row">
+							<form method="get" action="${contextPath}/vaccinationrecords/list" class="row">
 								<div class="form-group col-md-3" style="float: right;">
 									<label class="control-label">Tìm kiếm</label> <input
 										class="form-control" type="text" name="keyword"  value="${param.keyword}">
@@ -89,22 +89,22 @@
 								</tr>
 							</thead>
 							<tbody>
-							<c:forEach items="${pets}" var="pet">
+							<c:forEach items="${vaccinationrecords}" var="record">
 									<tr>
 										<td width="10"><input type="checkbox" name="check1"
 											value="1"></td>
-										<td>${pet.petName }</td>
-										<td>${pet.ownerID.ownerName }</td>
-										<td>${pet.species }</td>
-										<td>${pet.breed }</td>
-										<td>${pet.dateOfBirth }</td> 
+										<td>${record.petID.petName }</td>
+										<td>${record.vaccineID.vaccineName }</td>
+										<td>${record.vaccinationDate }</td>
+										<td>${record.veterinarianID.veterinarianName }</td>
+										<td>${record.nextDueDate }</td> 
 										<td><a
-											href="${contextPath}/pets/edit?id=${pet.petID}"
+											href="${contextPath}/vaccinationrecords/edit?id=${record.recordID}"
 											class="btn btn-primary btn-sm edit" title="Sửa"><i
 												class="fas fa-edit"></i></a> 
-												<a href="${contextPath}/pets/delete?id=${pet.petID}"
+												<a href="${contextPath}/vaccinationrecords/delete?id=${record.recordID}"
 											class="btn btn-primary btn-sm trash" title="Xóa"
-											onclick="return confirm('Are you sure?');"><i
+											onclick="return confirm('Bạn có chắc chắn muốn xóa không?');"><i
 												class="fas fa-trash-alt"></i></a></td>
 									</tr>
 								</c:forEach>

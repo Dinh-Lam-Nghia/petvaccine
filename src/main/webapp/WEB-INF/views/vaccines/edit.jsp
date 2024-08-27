@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -31,27 +31,31 @@
 				<div class="tile">
 					<h3 class="tile-title">Chỉnh sửa thông tin Vaccine</h3>
 					<div class="tile-body">
-						<form:form action="${pageContext.request.contextPath}/vaccines/edit" class="row" method="POST" modelAttribute="vaccines">
-							<form:input class="form-control" path="vaccineID" type="hidden"/>
+						<form:form
+							action="${pageContext.request.contextPath}/vaccines/edit"
+							class="row" method="POST" modelAttribute="vaccines">
+							<form:input class="form-control" type="hidden" path="vaccineID" />
+							<form:input class="form-control" type="hidden" path="delete" />
+							
 							<div class="form-group col-md-3">
-								<label class="control-label">Tên Vaccine</label> 
-								<form:input class="form-control" path="vaccineName"/>
+								<label class="control-label">Tên Vaccine</label>
+								<form:input class="form-control" path="vaccineName" />
 							</div>
 							<div class="form-group col-md-3">
-								<label class="control-label">Nhà sản xuất</label> 
-								<form:input class="form-control" path="manufacturer"/>
+								<label class="control-label">Nhà sản xuất</label>
+								<form:input class="form-control" path="manufacturer" />
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Ngừa bệnh</label> 
-								<form:input class="form-control" path="diseasePrevented"/>
+								<label class="control-label">Ngừa bệnh</label>
+								<form:input class="form-control" path="diseasePrevented" />
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Hạn sử dụng</label> 
-								<form:input class="form-control" path="duration" type="date"/>
+								<label class="control-label">Hạn sử dụng</label>
+								<form:input class="form-control" path="duration" type="date" />
 							</div>
 							<div class="form-group  col-md-3">
-								<label class="control-label">Ngày đăng ký</label> 
-								<form:input class="form-control" path="receiptDate" type="date"/>
+								<label class="control-label">Ngày đăng ký</label>
+								<form:input class="form-control" path="receiptDate" type="date" />
 							</div>
 							<div class="form-group col-md-12">
 								<button class="btn btn-save" type="submit">Lưu lại</button>
@@ -62,7 +66,7 @@
 							</div>
 						</form:form>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
