@@ -6,7 +6,6 @@
 <html lang="en">
 <head>
 <jsp:include page="/WEB-INF/views/head.jsp" />
-<jsp:useBean id="now" class="java.util.Date" scope="page" />
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
@@ -52,7 +51,7 @@
 							<div class="info">
 								<h4>Vaccine</h4>
 								<p>
-									<b>${totalVaccines} vaccine</b>
+									<b>1850 vaccine</b>
 								</p>
 								<p class="info-tong">Tổng số vaccine được quản lý.</p>
 							</div>
@@ -78,7 +77,7 @@
 							<div class="info">
 								<h4>Cuộc hẹn</h4>
 								<p>
-									<b>null cuộc hẹn</b>
+									<b>4 cuộc hẹn</b>
 								</p>
 								<p class="info-tong">Tổng số cuộc hẹn trong tháng.</p>
 							</div>
@@ -99,28 +98,13 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${vaccines.getContent()}" var="v">
-											<tr>
-												<td>${v.vaccineName}</td>
-												<td>${v.manufacturer}</td>
-												<td>${v.diseasePrevented}</td>
-												<td><c:choose>
-														<c:when
-															test="${now.time >= v.receiptDate.time && now.time <= v.duration.time}">
-															<span class="text-success">Còn hạn</span>
-														</c:when>
-														<c:otherwise>
-															<span class="text-danger">Hết hạn</span>
-														</c:otherwise>
-													</c:choose></td>
-											</tr>
-										</c:forEach>
+										
 									</tbody>
 								</table>
 							</div>
+							<!-- / div trống-->
 						</div>
 					</div>
-
 					<!-- / col-12 -->
 					<!-- col-12 -->
 					<div class="col-md-12">
@@ -164,7 +148,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="tile">
-							<h3 class="tile-title">Dữ liệu thống kê cuộc hẹn </h3>
+							<h3 class="tile-title">Dữ liệu 6 tháng đầu vào</h3>
 							<div class="embed-responsive embed-responsive-16by9">
 								<canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
 							</div>
@@ -172,7 +156,7 @@
 					</div>
 					<div class="col-md-12">
 						<div class="tile">
-							<h3 class="tile-title">Thống kê hồ sơ tiêm chủng</h3>
+							<h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
 							<div class="embed-responsive embed-responsive-16by9">
 								<canvas class="embed-responsive-item" id="barChartDemo"></canvas>
 							</div>

@@ -15,7 +15,7 @@ public class AuthFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // Khởi tạo bộ lọc
+        
     }
 
     @Override
@@ -34,19 +34,16 @@ public class AuthFilter implements Filter {
         boolean loginRequest = httpRequest.getRequestURI().equals(loginURI);
         boolean registerRequest = httpRequest.getRequestURI().equals(registerURI);
         boolean forgotRequest = httpRequest.getRequestURI().equals(forgotURI);
-        boolean staticResourceRequest = httpRequest.getRequestURI().matches(".*(\\.(css|js|png|jpg|jpeg|gif|woff|ttf))$");
 
-        if (loggedIn || loginRequest || registerRequest || forgotRequest || staticResourceRequest) {
-            // Người dùng đã đăng nhập hoặc đang yêu cầu trang login/register hoặc tài nguyên tĩnh, tiếp tục xử lý
-            chain.doFilter(request, response);
+        if (loggedIn || loginRequest || registerRequest || forgotRequest) {
+            chain.doFilter(request, response); // Người dùng đã đăng nhập hoặc đang yêu cầu trang login/register, tiếp tục xử lý
         } else {
-            // Chưa đăng nhập, chuyển hướng đến trang login
-            httpResponse.sendRedirect(loginURI);
+            httpResponse.sendRedirect(loginURI); // Chưa đăng nhập, chuyển hướng đến trang login
         }
     }
 
     @Override
     public void destroy() {
-        // Dọn dẹp bộ lọc khi ứng dụng dừng lại
+        
     }
 }
