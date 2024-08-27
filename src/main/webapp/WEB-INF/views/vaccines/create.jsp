@@ -32,6 +32,7 @@
 					<h3 class="tile-title">Thêm mới thông tin Vaccine</h3>
 					<div class="tile-body">
 						<form:form action="${pageContext.request.contextPath}/vaccines/create" class="row" method="POST" modelAttribute="vaccines">
+								<form:input class="form-control" type="hidden" path="delete" value="1" />
 							<div class="form-group col-md-3">
 								<label class="control-label">Tên Vaccine</label> 
 								<form:input class="form-control" path="vaccineName"/>

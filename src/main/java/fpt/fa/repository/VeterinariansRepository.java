@@ -12,6 +12,8 @@ public interface VeterinariansRepository extends JpaRepository<Veterinarians, In
     // Lấy danh sách bác sĩ chưa bị xóa (isDelete = 0)
     List<Veterinarians> findByDelete(int delete);
     
+    Veterinarians findByVeterinarianName(String veterinarianName);
+    
     @Query("SELECT v FROM Veterinarians v WHERE v.delete = 1 AND (v.veterinarianName LIKE %:keyword% OR v.email LIKE %:keyword% OR v.phoneNumber LIKE %:keyword%)")
     List<Veterinarians> searchVeterinarians(@Param("keyword") String keyword);
 }

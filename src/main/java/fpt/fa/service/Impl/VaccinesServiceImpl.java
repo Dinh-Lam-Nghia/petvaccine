@@ -31,8 +31,8 @@ public class VaccinesServiceImpl implements VaccinesService{
 	}
 	
 	@Override
-	public Vaccines findById(int vaccineID) {
-		return repository.findById(vaccineID).orElse(null);
+	public List<Vaccines> findByDelete(int delete) {
+		return repository.findByDelete(delete);
 	}
 	
 	@Override
@@ -59,6 +59,21 @@ public class VaccinesServiceImpl implements VaccinesService{
 	@Override
 	public long countDeletedVaccines() {
 	    return repository.countByDelete(1);
+	}
+
+	@Override
+	public Vaccines findById(int vaccineID) { 
+		return repository.findById(vaccineID).orElse(null);
+	}
+
+	@Override
+	public void deleteById(int id) { 
+		Vaccines vaccines = repository.findById(id).orElse(null);
+		if(vaccines != null) {
+			vaccines.setDelete(0);
+			repository.save(vaccines);
+		}
+		
 	}
 
 }
