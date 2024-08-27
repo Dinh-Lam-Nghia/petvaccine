@@ -99,6 +99,7 @@
 										</tr>
 									</thead>
 									<tbody>
+<<<<<<< HEAD
 										<c:forEach items="${vaccines.getContent()}" var="v">
 											<tr>
 												<td>${v.vaccineName}</td>
@@ -115,6 +116,9 @@
 													</c:choose></td>
 											</tr>
 										</c:forEach>
+=======
+										
+>>>>>>> main
 									</tbody>
 								</table>
 							</div>
