@@ -84,11 +84,16 @@
 									<label class="control-label">Số hiệu vi mạch</label>
 									<form:input class="form-control" type="text" path="microchipID" />
 								</div>
+								<div class="form-group col-md-12">
+								<button class="btn btn-save" type="submit">Lưu lại</button>
+
+								<button class="btn btn-cancel" type="button"
+									onclick="window.location.href='${contextPath}/pets/list'">Hủy
+									bỏ</button>
+							</div>
 
 							</div>
 						</div>
-						<button class="btn btn-save" type="submit">Lưu lại</button>
-						<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
 					</form:form>
 				</div>
 			</div>

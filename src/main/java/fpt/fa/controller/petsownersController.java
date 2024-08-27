@@ -28,7 +28,7 @@ public class petsownersController {
 			model.addAttribute("petOwners", petOwnersService.findByDelete());
 		}
 		model.addAttribute("menu_petsowners", "active");
-        model.addAttribute("title", "PetVaccines");
+        model.addAttribute("title", "Quản lý khách hàng");
 		return "petsowners/list";
 	}
 
@@ -36,7 +36,7 @@ public class petsownersController {
 	public String create_Petsowners(Model model) {
 		model.addAttribute("petOwners", new PetOwners());
 		model.addAttribute("menu_petsowners", "active");
-        model.addAttribute("title", "PetVaccines");
+        model.addAttribute("title", "Thêm khách hàng mới");
 		return "petsowners/create";
 	}
 
@@ -52,7 +52,7 @@ public class petsownersController {
 		if (petOwner != null) {
 			model.addAttribute("menu_petsowners", "active");
 			model.addAttribute("petOwners", petOwner);
-	        model.addAttribute("title", "PetVaccines");
+	        model.addAttribute("title", "Chỉnh sửa khách hàng");
 
 			return "petsowners/edit";
 		} else {
