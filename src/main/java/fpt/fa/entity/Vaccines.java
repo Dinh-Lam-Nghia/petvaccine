@@ -114,6 +114,10 @@ public class Vaccines {
 		this.receiptDate = receiptDate;
 		this.delete = delete;
 	}
+	public boolean isExpired() {
+        Date currentDate = new Date(System.currentTimeMillis());
+        return this.duration.before(currentDate);
+    }
 	
 	
 }

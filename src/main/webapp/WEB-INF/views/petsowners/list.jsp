@@ -105,7 +105,7 @@
 												class="fas fa-edit"></i></a> 
 												<a href="${contextPath}/petsowners/delete?id=${pet.ownerID}"
 											class="btn btn-primary btn-sm trash" title="Xóa"
-											onclick="return confirm('Are you sure?');"><i
+											onclick="return confirm('Bạn có chắc chắn muốn xóa khách hàng này?');"><i
 												class="fas fa-trash-alt"></i></a></td>
 									</tr>
 								</c:forEach>

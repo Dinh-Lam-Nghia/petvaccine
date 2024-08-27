@@ -60,10 +60,16 @@
 									<form:input class="form-control" type="date"
 										path="dateOfRegistration" />
 								</div>
+								<div class="form-group col-md-12">
+								<button class="btn btn-save" type="submit">Lưu lại</button>
+
+								<button class="btn btn-cancel" type="button"
+									onclick="window.location.href='${contextPath}/petsowners/list'">Hủy
+									bỏ</button>
+							</div>
 							</div>
 						</div>
-						<button class="btn btn-save" type="submit">Lưu lại</button>
-						<button class="btn btn-cancel" type="reset">Hủy bỏ</button>
+						
 					</form:form>
 				</div>
 			</div>
