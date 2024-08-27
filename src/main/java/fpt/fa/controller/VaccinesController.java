@@ -24,22 +24,23 @@ public class VaccinesController {
 	
 	@GetMapping("/list")
 	public String vaccines(
-			@RequestParam(name = "page", required = false, defaultValue = "1") int page,
-			@RequestParam(name = "size", required = false, defaultValue = "5") int size,
-			Model model) {
-		Page<Vaccines> vaccines = vaccinesService.getListVaccinesWithPaging(PageRequest.of(page - 1, size));
-		model.addAttribute("vaccines", vaccines);
-		model.addAttribute("currentPage", page);
-		model.addAttribute("currentSize", size);
-		model.addAttribute("title", "Vaccines");
-		model.addAttribute("menu_vaccines", "active");
-		return "vaccines/list";
+	        @RequestParam(name = "page", required = false, defaultValue = "1") int page,
+	        @RequestParam(name = "size", required = false, defaultValue = "5") int size,
+	        Model model) {
+	    Page<Vaccines> vaccines = vaccinesService.getListVaccinesWithPaging(PageRequest.of(page - 1, size));
+	    model.addAttribute("vaccines", vaccines);
+	    model.addAttribute("currentPage", page);
+	    model.addAttribute("currentSize", size);
+	    model.addAttribute("title", "Quản lý vắc-xin");
+	    model.addAttribute("menu_vaccines", "active");
+	    return "vaccines/list";
 	}
+
 	
 	@GetMapping("/create")
 	public String create_Petsowners(Model model) {
 		model.addAttribute("vaccines", new Vaccines());
-		model.addAttribute("title", "Vaccines");
+		model.addAttribute("title", "Thêm vắc-xin mới");
 		model.addAttribute("menu_vaccines", "active");
 		return "vaccines/create";
 	}
@@ -53,6 +54,7 @@ public class VaccinesController {
 	
 	@PostMapping("/edit/{vaccineID}")
 	 public String showUpdateForm(@PathVariable("vaccineID") int vaccineID, Model model) {
+		model.addAttribute("title", "Chỉnh sửa vaccines");
 	     Vaccines vaccines = vaccinesService.findById(vaccineID);
 	     model.addAttribute("vaccines", vaccines);
 	     return "vaccines/edit"; // Tên của JSP page chứa form cập nhật

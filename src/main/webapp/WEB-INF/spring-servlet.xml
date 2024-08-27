@@ -39,7 +39,7 @@
 		<property name="url"
 			value="jdbc:sqlserver://localhost:1433;databaseName=petvaccine" />
 		<property name="username" value="sa" />
-		<property name="password" value="123456" />
+		<property name="password" value="123123" />
 	</bean>
 
 	<!-- Step 2: Entity Manager Factory Configuration -->

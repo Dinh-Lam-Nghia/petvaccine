@@ -51,4 +51,14 @@ public class VaccinesServiceImpl implements VaccinesService{
 		// TODO Auto-generated method stub
 		return repository.findAllVaccinesByVaccineNameContaining(name, pageable);
 	}
+	@Override
+	public long countAllVaccines() {
+	    return repository.count();
+	}
+
+	@Override
+	public long countDeletedVaccines() {
+	    return repository.countByDelete(1);
+	}
+
 }
