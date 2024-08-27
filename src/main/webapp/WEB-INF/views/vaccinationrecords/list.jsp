@@ -81,12 +81,10 @@
 								<tr>
 									<th width="10"><input type="checkbox" id="all"></th>
 									<th>Tên thú cưng</th>
-									<th>Chủ thú cưng</th>
-									<th>Loài</th>
-									<th>Giống loài</th>
-									<th>Ngày sinh</th>
-									<th>Giới tính</th>
-									<th>Số hiệu vi mạch</th> 
+									<th>Tên vaccine</th>
+									<th>Ngày tiêm chủng</th>
+									<th>Bác sĩ</th>
+									<th>Ngày đến hạn tiếp theo</th> 
 									<th width="100">Tính năng</th>
 								</tr>
 							</thead>
@@ -99,9 +97,7 @@
 										<td>${pet.ownerID.ownerName }</td>
 										<td>${pet.species }</td>
 										<td>${pet.breed }</td>
-										<td>${pet.dateOfBirth }</td>
-										<td>${pet.gender }</td>
-										<td>${pet.microchipID }</td>
+										<td>${pet.dateOfBirth }</td> 
 										<td><a
 											href="${contextPath}/pets/edit?id=${pet.petID}"
 											class="btn btn-primary btn-sm edit" title="Sửa"><i
