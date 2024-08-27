@@ -28,11 +28,7 @@ public class indexController {
 
     @GetMapping("/")
     public String index(Model model) {
-<<<<<<< HEAD
-        model.addAttribute("title", "Trang chính");
-=======
         model.addAttribute("title", "Trang chính - Quản lý vaccine thú cưng");
->>>>>>> main
         model.addAttribute("menu_index", "active");
 
         long deletedCustomers = petOwnersService.countDeletedCustomers();
@@ -43,7 +39,6 @@ public class indexController {
         long deletedPets = petsService.countDeletedPets();
         model.addAttribute("deletedPets", deletedPets);
 
-<<<<<<< HEAD
         Page<Vaccines> vaccinesPage = vaccinesService.getListVaccinesWithPaging(PageRequest.of(0, 5)); // Ví dụ lấy 5 vaccine đầu tiên
         model.addAttribute("vaccines", vaccinesPage);
         
@@ -52,11 +47,6 @@ public class indexController {
 
         long deletedVaccines = vaccinesService.countDeletedVaccines();
         model.addAttribute("deletedVaccines", deletedVaccines);
-=======
-        // Lấy thông tin vaccine và thêm vào model
-        Page<Vaccines> vaccinesPage = vaccinesService.getListVaccinesWithPaging(PageRequest.of(0, 5)); // Ví dụ lấy 5 vaccine đầu tiên
-        model.addAttribute("vaccines", vaccinesPage);
->>>>>>> main
 
         return "index";
     }
