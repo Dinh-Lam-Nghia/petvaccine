@@ -33,6 +33,10 @@ public class VaccinationRecords {
 
 	@Column(columnDefinition = "date")
 	private Date nextDueDate;
+	
+	@Column(columnDefinition = "String")
+	private String status;
+
 
 	@Column(name = "isDelete")
 	private int delete;
@@ -44,7 +48,14 @@ public class VaccinationRecords {
 	public void setDelete(int delete) {
 		this.delete = delete;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
 
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public VaccinationRecords() {
 		super();
 	}

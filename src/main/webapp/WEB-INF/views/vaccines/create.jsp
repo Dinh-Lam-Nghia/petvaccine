@@ -51,7 +51,7 @@
 							</div>
 							<div class="form-group  col-md-3">
 								<label class="control-label">Ngày đăng ký</label> 
-								<form:input class="form-control" path="receiptDate" type="date"/>
+								<form:input class="form-control" path="receiptDate" type="date" value="${currentDate}"/>
 							</div>
 							<div class="form-group col-md-12">
 								<button class="btn btn-save" type="submit">Lưu lại</button>

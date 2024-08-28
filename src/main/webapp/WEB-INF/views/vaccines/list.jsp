@@ -6,9 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <jsp:include page="/WEB-INF/views/head.jsp" />
-
 <title>Vaccines</title>
 </head>
 <body onload="time()" class="app sidebar-mini rtl">
@@ -64,8 +63,7 @@
 									class="fas fa-file-pdf"></i> Xuất PDF</a>
 							</div>
 							<div class="col-sm-2">
-								<a class="btn btn-delete btn-sm" type="button" title="Xóa"
-									onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+								<a id="deleteSelected" class="btn btn-delete btn-sm" type="button" title="Xóa"><i class="fas fa-trash-alt"></i>
 									Xóa tất cả </a>
 							</div>
 						</div>
@@ -79,7 +77,7 @@
 							</form>
 							<thead>
 								<tr>
-									<th width="10"><input type="checkbox" id="all"></th>
+									<th width="10"><input type="checkbox" id="all" onclick="toggleAll(this)"></th>
 									<th>Tên Vaccine</th>
 									<th>Nhà sản xuất</th>
 									<th>Ngừa bệnh</th>
@@ -90,10 +88,9 @@
 								
 							</thead>
 							<tbody>
-								<c:forEach items="${vaccines }" var="v">
+								<c:forEach items="${vaccines}" var="v">
 									<tr>
-										<td width="10"><input type="checkbox" name="check1"
-											value="1"></td>
+										<td width="10"><input type="checkbox" name="ids" value="${v.vaccineID}" class="item-checkbox"></td>
 										<td>${v.vaccineName}</td>
 										<td>${v.manufacturer }</td>
 										<td>${v.diseasePrevented }</td>
@@ -123,6 +120,44 @@
 			</div>
 		</div>
 	</main>
+	<script>
+        function toggleAll(source) {
+            const checkboxes = document.querySelectorAll('.item-checkbox');
+            checkboxes.forEach(checkbox => checkbox.checked = source.checked);
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#deleteSelected').click(function(e) {
+                e.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
 
+                var selectedIds = [];
+                $('.item-checkbox:checked').each(function() {
+                    selectedIds.push($(this).val());
+                });
+
+                if (selectedIds.length > 0) {
+                    var form = $('<form></form>');
+                    form.attr('action', '/Petvaccine/vaccines/delete');
+                    form.attr('method', 'post');
+
+                    // Thêm dữ liệu vào form
+                    selectedIds.forEach(function(id) {
+                        var input = $('<input></input>');
+                        input.attr('type', 'hidden');
+                        input.attr('name', 'ids');
+                        input.attr('value', id);
+                        form.append(input);
+                    });
+
+                    // Thêm form vào body và submit
+                    $('body').append(form);
+                    form.submit();
+                } else {
+                    alert('Vui lòng chọn ít nhất một mục để xóa.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
