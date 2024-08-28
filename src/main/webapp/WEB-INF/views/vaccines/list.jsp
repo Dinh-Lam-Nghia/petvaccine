@@ -90,7 +90,7 @@
 								
 							</thead>
 							<tbody>
-								<c:forEach items="${vaccines.getContent() }" var="v">
+								<c:forEach items="${vaccines }" var="v">
 									<tr>
 										<td width="10"><input type="checkbox" name="check1"
 											value="1"></td>

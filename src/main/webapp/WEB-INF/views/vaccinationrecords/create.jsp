@@ -31,7 +31,7 @@
 			<div class="col-md-12">
 				<div class="tile">
 					<form:form action="${contextPath}/vaccinationrecords/create" method="POST"
-						modelAttribute="pets">
+						modelAttribute="vaccinationrecords">
 						<h3 class="tile-title">Thêm mới thông tin hồ sơ</h3>
 
 						<div class="tile-body">
@@ -40,48 +40,40 @@
 									value="1" />
 									
 								<div class="form-group col-md-3 ">
-									<label for="exampleSelect1" class="control-label">Chủ
-										thú cưng</label>
-									<form:select path="ownerID.ownerID" class="form-control"
+									<label for="exampleSelect1" class="control-label">Thú cưng</label>
+									<form:select path="petID.petID" class="form-control"
 										id="exampleSelect1">
-										<option value="0">---Chọn chủ thú cưng---</option>
-										<form:options items="${petowners}" itemLabel="ownerName" itemValue="ownerID" />
+										<option value="0">---Chọn thú cưng---</option>
+										<form:options items="${pets}" itemLabel="petName" itemValue="petID" />
 									</form:select>
-								</div>
-								
-								<div class="form-group col-md-3">
-									<label class="control-label">Tên thú cưng</label>
-									<form:input class="form-control" type="text" path="petName" />
-								</div>
-								
-								<div class="form-group  col-md-3">
-									<label class="control-label">Loài</label>
-									<form:input class="form-control" type="text" path="species" />
-								</div>
-								
-								<div class="form-group  col-md-3">
-									<label class="control-label">Giống loài</label>
-									<form:input class="form-control" type="text" path="breed" />
-								</div>
-								
-								<div class="form-group  col-md-3">
-									<label class="control-label">Ngày sinh</label>
-									<form:input class="form-control" type="date" path="dateOfBirth" />
-								</div>
+								</div>	
 								
 								<div class="form-group col-md-3 ">
-									<label for="exampleSelect1" class="control-label">Giới
-										tính</label> 
-									<form:select path="gender" class="form-control"
+									<label for="exampleSelect1" class="control-label">Vaccine</label>
+									<form:select path="vaccineID.vaccineID" class="form-control"
 										id="exampleSelect1">
-										<option value="Con đực">Con đực</option>
-										<option value="Con cái">Con cái</option>
+										<option value="0">---Chọn vaccines---</option>
+										<form:options items="${vaccines}" itemLabel="vaccineName" itemValue="vaccineID" />
+									</form:select>
+								</div>	
+								
+								<div class="form-group col-md-3">
+									<label class="control-label">Ngày tiêm chủng</label>
+									<form:input class="form-control" type="date" path="vaccinationDate" />
+								</div>
+								<div class="form-group col-md-3 ">
+									<label for="exampleSelect1" class="control-label">Bác sĩ</label>
+									<form:select path="veterinarianID.veterinarianID" class="form-control"
+										id="exampleSelect1">
+										<option value="0">---Chọn bác sĩ---</option>
+										<form:options items="${veterinarians}" itemLabel="veterinarianName" itemValue="veterinarianID" />
 									</form:select>
 								</div>
 								
+								
 								<div class="form-group  col-md-3">
-									<label class="control-label">Số hiệu vi mạch</label>
-									<form:input class="form-control" type="text" path="microchipID" />
+									<label class="control-label">Ngày đến hạn tiếp theo</label>
+									<form:input class="form-control" type="date" path="nextDueDate" />
 								</div>
 								
 							</div>

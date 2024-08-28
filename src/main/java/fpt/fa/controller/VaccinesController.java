@@ -24,13 +24,8 @@ public class VaccinesController {
 	
 	@GetMapping("/list")
 	public String vaccines(
-	        @RequestParam(name = "page", required = false, defaultValue = "1") int page,
-	        @RequestParam(name = "size", required = false, defaultValue = "5") int size,
 	        Model model) {
-	    Page<Vaccines> vaccines = vaccinesService.getListVaccinesWithPaging(PageRequest.of(page - 1, size));
-	    model.addAttribute("vaccines", vaccines);
-	    model.addAttribute("currentPage", page);
-	    model.addAttribute("currentSize", size);
+	    model.addAttribute("vaccines", vaccinesService.findByDelete(1)); 
 	    model.addAttribute("title", "Quản lý vắc-xin");
 	    model.addAttribute("menu_vaccines", "active");
 	    return "vaccines/list";
@@ -38,7 +33,7 @@ public class VaccinesController {
 
 	
 	@GetMapping("/create")
-	public String create_Petsowners(Model model) {
+	public String create_vaccines(Model model) {
 		model.addAttribute("vaccines", new Vaccines());
 		model.addAttribute("title", "Thêm vắc-xin mới");
 		model.addAttribute("menu_vaccines", "active");
@@ -69,7 +64,7 @@ public class VaccinesController {
 	
 	@PostMapping("/delete/{vaccineID}")
     public String delete(@PathVariable("vaccineID") int vaccineID, RedirectAttributes redirectAttributes) {
-		vaccinesService.delete(vaccineID);
+		vaccinesService.deleteById(vaccineID);
         redirectAttributes.addFlashAttribute("message", "Item deleted successfully.");
         return "redirect:/vaccines/list";
     }
