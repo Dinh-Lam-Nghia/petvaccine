@@ -22,6 +22,10 @@ public class ClinicsServiceImpl implements ClinicsService {
     private ClinicsRepository clinicsRepository;
 
     @Override
+    public List<Clinics> getActiveClinics() {
+        return clinicsRepository.findByDelete(1); // Assuming 1 means active
+    }
+    @Override
     public List<Clinics> getAllClinics() {
         return clinicsRepository.findByDelete(1);
     }

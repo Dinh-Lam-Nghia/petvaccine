@@ -78,7 +78,7 @@
 							<div class="info">
 								<h4>Cuộc hẹn</h4>
 								<p>
-									<b>null cuộc hẹn</b>
+									<b>${deletedAppointments} cuộc hẹn</b>
 								</p>
 								<p class="info-tong">Tổng số cuộc hẹn trong tháng.</p>
 							</div>

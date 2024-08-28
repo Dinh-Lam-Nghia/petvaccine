@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fpt.fa.service.AppointmentsService;
 import fpt.fa.service.PetOwnersService;
 import fpt.fa.service.PetsService;
 import fpt.fa.service.VaccinesService;
@@ -25,6 +26,9 @@ public class indexController {
 
     @Autowired
     private VaccinesService vaccinesService;
+    
+    @Autowired
+    private AppointmentsService appointmentsService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -47,6 +51,9 @@ public class indexController {
 
         long deletedVaccines = vaccinesService.countDeletedVaccines();
         model.addAttribute("deletedVaccines", deletedVaccines);
+        
+        long deletedAppointments = appointmentsService.countAppointmentsWithDelete1();
+        model.addAttribute("deletedAppointments", deletedAppointments);
 
         return "index";
     }

@@ -17,6 +17,10 @@ public class VeterinariansServiceImpl implements VeterinariansService {
     private VeterinariansRepository veterinariansRepository;
 
     @Override
+    public List<Veterinarians> getActiveVeterinarians() {
+        return veterinariansRepository.findByDelete(1); // Assuming 1 means active
+    }
+    @Override
     public List<Veterinarians> getAllVeterinarians() {
         return veterinariansRepository.findByDelete(1);
     }

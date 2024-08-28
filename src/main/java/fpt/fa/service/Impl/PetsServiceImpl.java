@@ -20,6 +20,10 @@ public class PetsServiceImpl implements PetsService {
 
 
 	@Override
+    public List<Pets> getActivePets() {
+        return findByDelete(1);  // Lấy các thú cưng chưa bị xóa
+    }
+	@Override
 	public void create(Pets pets) {
 		petsRepository.save(pets);
 	}
@@ -52,4 +56,5 @@ public class PetsServiceImpl implements PetsService {
     public long countDeletedPets() {
         return petsRepository.countByDelete(1);
     }
+	
 }

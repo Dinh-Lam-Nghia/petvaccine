@@ -62,7 +62,7 @@
 				class="app-menu__label">Quản lý thú cưng</span></a></li>
 
 		<li><a class="app-menu__item ${menu_appointments  }"
-			href="${contextPath }/vaccinationrecords/list"><i class='app-menu__icon bx bx-task'></i><span
+			href="${contextPath }/appointments/list"><i class='app-menu__icon bx bx-task'></i><span
 				class="app-menu__label">Quản lý cuộc hẹn</span></a></li>
 
 		<li><a class="app-menu__item ${menu_vaccines }"
