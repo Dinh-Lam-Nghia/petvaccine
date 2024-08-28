@@ -11,4 +11,5 @@ public interface VeterinariansService {
     Veterinarians updateVeterinarians(Veterinarians veterinarians);
     void deleteVeterinarians(int veterinarianID);
     List<Veterinarians> searchVeterinarians(String keyword);
+    List<Veterinarians> getActiveVeterinarians();
 }

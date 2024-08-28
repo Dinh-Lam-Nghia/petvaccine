@@ -14,6 +14,10 @@ public class PetOwnersServiceImpl implements PetOwnersService {
 	@Autowired
 	private PetOwnersRepository petOwnersRepository;
 
+	@Override
+    public List<PetOwners> getActivePetOwners() {
+        return petOwnersRepository.findByDelete(1); // Assuming 1 means active
+    }
 	 @Override
 	    public List<PetOwners> getNewCustomersNotDeleted() {
 	        // Lấy danh sách 10 khách hàng chưa bị xóa

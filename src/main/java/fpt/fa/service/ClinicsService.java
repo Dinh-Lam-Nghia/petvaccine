@@ -14,4 +14,5 @@ public interface ClinicsService {
     void deleteClinic(int clinicID);
     List<Clinics> searchClinics(String keyword);
     void importClinicsFromExcel(MultipartFile file);
+    List<Clinics> getActiveClinics();
 }

@@ -13,4 +13,5 @@ public interface PetOwnersService {
 	List<PetOwners> search(String search);
 	long countDeletedCustomers();
 	List<PetOwners> getNewCustomersNotDeleted();
+	List<PetOwners> getActivePetOwners();
 }
