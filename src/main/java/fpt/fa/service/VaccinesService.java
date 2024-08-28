@@ -1,5 +1,6 @@
 package fpt.fa.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -19,4 +20,7 @@ public interface VaccinesService {
 	long countAllVaccines();
 	long countDeletedVaccines();
 	List<Vaccines> findByDelete(int delete);
+	
+	void deleteByIds(List<Integer> ids);
+
 }

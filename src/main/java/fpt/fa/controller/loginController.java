@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,15 +54,18 @@ public class loginController {
 			model.addAttribute("message", "Mât khẩu không chính xác");
 			return "login_logout/login";
 		}
-		
 		Account account = accountService.checkAccount(username);
 		session.setAttribute("displayname", account.getDisplayName());
 		session.setAttribute("username", username);
+		session.setAttribute("role", account.getIntID());
 		Cookie cookie = new Cookie("username", username);
 		cookie.setMaxAge(60 * 60);
 		cookie.setPath("/");
 		response.addCookie(cookie);
 		System.out.print("Đăng nhập thành công");
+		if(account.getIntID()==2) {
+			return "redirect:/customers/history";
+				}
 		return "redirect:/";
 	}
 	
@@ -124,7 +126,7 @@ public class loginController {
 			model.addAttribute("message", "Mật khẩu không khớp");
 			return "login_logout/register";
 		}
-		Position postion = new Position(1,"admin",0);
+		Position postion = new Position(2,"Customer",1);
 		Account account = new Account( username, password, fullname, phone, 1,postion);
 		accountService.create(account);
 		model.addAttribute("message", "Đăng ký thành công");

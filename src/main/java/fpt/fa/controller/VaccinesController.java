@@ -1,5 +1,9 @@
 package fpt.fa.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,6 +38,10 @@ public class VaccinesController {
 	
 	@GetMapping("/create")
 	public String create_vaccines(Model model) {
+		LocalDate today = LocalDate.now();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	    String currentDate = today.format(formatter);
+	    model.addAttribute("currentDate", currentDate);
 		model.addAttribute("vaccines", new Vaccines());
 		model.addAttribute("title", "Thêm vắc-xin mới");
 		model.addAttribute("menu_vaccines", "active");
@@ -69,6 +77,12 @@ public class VaccinesController {
         return "redirect:/vaccines/list";
     }
 	
+	@PostMapping("/delete")
+    public String deleteItems(@RequestParam("ids") List<Integer> ids) {
+		vaccinesService.deleteByIds(ids);
+        return "redirect:/vaccines/list";
+    }
+	
 	@GetMapping("/search")
 	public String search(Model model,
 			@RequestParam(name = "page", required = false, defaultValue = "1") int page,
@@ -81,5 +95,6 @@ public class VaccinesController {
 		model.addAttribute("currentSize", size);
 		return "vaccines/list";
 	}
+	
 	
 }

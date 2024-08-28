@@ -36,47 +36,55 @@
 	<ul class="app-menu">
 		<!--  <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
           <span class="app-menu__label">POS Bán Hàng</span></a></li> -->
-		<li><a class="app-menu__item ${menu_index }"
-			href="${contextPath }/"><i
-				class='app-menu__icon bx bx-tachometer'></i><span
-				class="app-menu__label">Bảng thống kê</span></a></li>
-
-		<li><a class="app-menu__item ${menu_clinics }"
-			href="${contextPath }/clinics/list"><i class='bx bx-home-heart'
-				style="font-size: 24px; padding-right: 19px"></i> <span
-				class="app-menu__label">Quản lý phòng khám</span></a></li>
-
-		<li><a class="app-menu__item ${menu_veterinarians }"
-			href="${contextPath }/veterinarians/list"><i class='bx bxs-group'
-				style="font-size: 24px; padding-right: 19px"></i><span
-				class="app-menu__label">Quản lý Bác sĩ </span></a></li>
-
-		<li><a class="app-menu__item ${menu_petsowners }"
-			href="${contextPath }/petsowners/list"><i
-				class='app-menu__icon bx bx-user-voice'></i><span
-				class="app-menu__label">Quản lý khách hàng</span></a></li>
-
-		<li><a class="app-menu__item ${menu_pets }"
-			href="${contextPath }/pets/list"><i class='bx bxs-cat'
-				style="font-size: 24px; padding-right: 19px"></i><span
-				class="app-menu__label">Quản lý thú cưng</span></a></li>
-
-		<li><a class="app-menu__item ${menu_appointments  }"
-
-			href="${contextPath }/appointments/list"><i class='app-menu__icon bx bx-task'></i><span
-
-			href="#"><i class='app-menu__icon bx bx-task'></i><span
-
-				class="app-menu__label">Quản lý cuộc hẹn</span></a></li>
-
-		<li><a class="app-menu__item ${menu_vaccines }"
-			href="${contextPath }/vaccines/list"><i class='bx bx-test-tube'
-				style="font-size: 24px; padding-right: 19px"></i><span
-				class="app-menu__label">Quản lý vắc-xin</span></a></li>
-
-		<li><a class="app-menu__item ${menu_vaccinationRecords  }"
-			href="${contextPath }/vaccinationrecords/list"><i class='bx bx-folder-open'
-				style="font-size: 24px; padding-right: 19px"></i><span
-				class="app-menu__label">Hồ sơ tiêm chủng</span></a></li>
+            <c:if test="${sessionScope.role == '1'}">
+				<li><a class="app-menu__item ${menu_index }"
+					href="${contextPath }/"><i
+						class='app-menu__icon bx bx-tachometer'></i><span
+						class="app-menu__label">Bảng thống kê</span></a></li>
+		
+				<li><a class="app-menu__item ${menu_clinics }"
+					href="${contextPath }/clinics/list"><i class='bx bx-home-heart'
+						style="font-size: 24px; padding-right: 19px"></i> <span
+						class="app-menu__label">Quản lý phòng khám</span></a></li>
+		
+				<li><a class="app-menu__item ${menu_veterinarians }"
+					href="${contextPath }/veterinarians/list"><i class='bx bxs-group'
+						style="font-size: 24px; padding-right: 19px"></i><span
+						class="app-menu__label">Quản lý Bác sĩ </span></a></li>
+		
+				<li><a class="app-menu__item ${menu_petsowners }"
+					href="${contextPath }/petsowners/list"><i
+						class='app-menu__icon bx bx-user-voice'></i><span
+						class="app-menu__label">Quản lý khách hàng</span></a></li>
+		
+				<li><a class="app-menu__item ${menu_pets }"
+					href="${contextPath }/pets/list"><i class='bx bxs-cat'
+						style="font-size: 24px; padding-right: 19px"></i><span
+						class="app-menu__label">Quản lý thú cưng</span></a></li>
+		
+				<li><a class="app-menu__item ${menu_appointments  }"
+					href="${contextPath }/appointments/list"><i class='app-menu__icon bx bx-task'></i><span
+						class="app-menu__label">Quản lý cuộc hẹn</span></a></li>
+		
+				<li><a class="app-menu__item ${menu_vaccines }"
+					href="${contextPath }/vaccines/list"><i class='bx bx-test-tube'
+						style="font-size: 24px; padding-right: 19px"></i><span
+						class="app-menu__label">Quản lý vắc-xin</span></a></li>
+		
+				<li><a class="app-menu__item ${menu_vaccinationRecords  }"
+					href="${contextPath }/vaccinationrecords/list"><i class='bx bx-folder-open'
+						style="font-size: 24px; padding-right: 19px"></i><span
+						class="app-menu__label">Hồ sơ tiêm chủng</span></a></li>
+			</c:if>
+			<c:if test="${sessionScope.role == '2'}">
+          		<li><a class="app-menu__item ${menu_appointments  }"
+					href="${contextPath }/customers/history"><i class='app-menu__icon bx bx-task'></i><span
+						class="app-menu__label">Lịch sử tiêm chủng</span></a></li>
+	          	<li><a class="app-menu__item ${menu_vaccinationRecords  }"
+						href="${contextPath }/customers/register"><i class='bx bx-folder-open'
+							style="font-size: 24px; padding-right: 19px"></i><span
+							class="app-menu__label">Đăng ký tiêm chủng</span></a></li>
+          	</c:if>	
+			
 	</ul>
 </aside>

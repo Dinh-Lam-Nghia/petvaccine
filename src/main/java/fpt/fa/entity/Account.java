@@ -89,7 +89,12 @@ public class Account {
 	public void setPositionID(Position positionID) {
 		this.positionID = positionID;
 	}
-
+	public int getIntID() {
+        if (positionID != null) {
+            return positionID.getPositionID();
+        }
+        return -1; // Hoặc giá trị mặc định khác nếu position là null
+    }
 	public Account() {
 		super();
 	}
